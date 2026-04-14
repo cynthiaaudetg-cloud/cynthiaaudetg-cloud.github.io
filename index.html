@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tattoo Sokalité | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;700&family=Montserrat:wght@400;700;900&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root { --neon-pink: #ff00ff; --gold: #f1c40f; }
+        body { background-color: #000; color: #fff; font-family: 'Cormorant Garamond', serif; margin: 0; text-align: center; }
+        .header { padding: 40px 20px; }
+        h1 { font-size: 3rem; margin: 0; background: linear-gradient(to right, var(--neon-pink), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 3px; }
+        .artist-name { font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 2.2rem; margin-bottom: 20px; }
+        .main-profile { width: 220px; height: 220px; margin: 0 auto; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; box-shadow: 0 0 20px rgba(241, 196, 15, 0.3); }
+        .main-profile img { width: 100%; height: 100%; object-fit: cover; }
+        .specialties { margin: 30px auto; font-family: 'Montserrat', sans-serif; color: var(--neon-pink); border: 1px solid var(--neon-pink); display: inline-block; padding: 10px 20px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        .portfolio { padding: 40px 10px; background: #050505; }
+        .portfolio h2 { font-weight: 300; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; }
+        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; max-width: 700px; margin: 0 auto; padding: 0 10px 40px; }
+        .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer; transition: transform 0.2s, opacity 0.2s; }
+        .gallery img:active { transform: scale(0.97); opacity: 0.8; }
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 999; justify-content: center; align-items: center; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 95vw; max-height: 90vh; object-fit: contain; border-radius: 4px; }
+        .lightbox-close { position: fixed; top: 20px; right: 20px; color: #fff; font-size: 2.5rem; cursor: pointer; z-index: 1000; line-height: 1; }
+        .contact-section { background: #000; padding: 60px 20px; border-top: 1px solid #222; }
+        .btn-container { display: flex; flex-direction: column; gap: 15px; align-items: center; max-width: 350px; margin: 0 auto; }
+        .btn { width: 100%; padding: 15px; text-decoration: none; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.75rem; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
+        .btn-tiktok { border: 2px solid #00ffff; color: #fff; }
+        .btn-fb { background: #1877F2; color: #fff; }
+        .btn-dave { background: #111; border: 2px solid var(--neon-pink); color: #fff; border-radius: 15px; padding: 10px 20px; text-align: left; }
+        .dave-img { width: 50px; height: 50px; border-radius: 50%; border: 1px solid #fff; object-fit: cover; }
+        footer { padding: 40px; color: #444; font-size: 0.7rem; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">✕</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+    <div class="header">
+        <img src="https://i.postimg.cc/vgpdH6LV/Logo-png.png" alt="Logo La Sokalité" style="width:140px; height:140px; object-fit:contain; margin-bottom:16px;"><br>
+        <h1>Tattoo Sokalité</h1>
+        <div class="artist-name">Cynthia Audet Grondin</div>
+        <div class="main-profile">
+            <img src="https://i.postimg.cc/64nx75YD/Moi-jpg.jpg" alt="Cynthia">
+        </div>
+        <div class="specialties">Black & Grey • Dotwork • Mandala</div>
+        <p style="font-style: italic; color: #888;">Douceur • Finesse • Semi-Réalisme</p>
+    </div>
+    <div class="portfolio">
+        <h2>Portfolio</h2>
+        <div class="gallery">
+            <img src="https://i.postimg.cc/v1QJbxcR/IMG-2382.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/KKJdzcMZ/IMG-2725.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/7CxFwJbQ/IMG-3119.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/TyCZw2Df/IMG-3320.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/v1QJbxDC/IMG-3415.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/jWZG5q7b/IMG-3794.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/XZVR4BXm/IMG-4685.png" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/Z9TG4v0Q/IMG-4686.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/bdsWLjK7/image.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/NypWMGHv/IMG-7326.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/hJpHj4dW/IMG-7589.jpg" onclick="openLightbox(this)">
+            <img src="https://i.postimg.cc/QB0RtNWP/IMG-9830.jpg" onclick="openLightbox(this)">
+        </div>
+    </div>
+    <div class="contact-section">
+        <h3 style="font-family: Montserrat; letter-spacing: 3px; color: var(--gold);">NOUS REJOINDRE</h3>
+        <div class="btn-container">
+            <a href="https://www.tiktok.com/@lasokaliteshop" class="btn btn-tiktok" target="_blank">TikTok Sokalité</a>
+            <a href="https://www.facebook.com/share/17bipwd3sq/?mibextid=wwXIfr" class="btn btn-fb" target="_blank">Facebook Pro</a>
+            <a href="https://m.me/DaveGagnonlasokalite" class="btn btn-dave" target="_blank">
+                <img src="https://i.postimg.cc/svCRk72z/Dave-jpg.avif" alt="Dave" class="dave-img">
+                <div style="flex-grow: 1;">
+                    <span style="display: block; font-weight: 900;">DAVE GAGNON</span>
+                    <span style="font-size: 0.6rem; color: #ccc; text-transform: none;">Rendez-vous Week-end</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <footer>© 2026 TATTOO SOKALITÉ • QUÉBEC CITY</footer>
+    <script>
+        function openLightbox(img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    </script>
+</body>
+</html>
