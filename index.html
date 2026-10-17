@@ -1,516 +1,293 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tattoo Sokalité | Portfolio</title>
-  <meta name="description" content="Portfolio Tattoo Sokalité par Cynthia Audet Grondin et Dave Gagnon. Black & Grey, Dotwork, Semi-réalisme, Surréalisme et réalisme.">
-  <meta name="theme-color" content="#000000">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TATTOO SOKALITÉ — Cynthia Audet Grondin & Dave Gagnon</title>
+<meta name="description" content="Tattoo Sokalité — studio de tatouage à L'Ancienne-Lorette. Cynthia Audet Grondin & Dave Gagnon. Qualité Sokalite 💎">
+<link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rouge:#e50914;
+    --rouge-clair:#ff3942;
+    --rouge-fonce:#8f060d;
+    --noir:#0a0a0a;
+    --noir2:#141414;
+    --noir3:#1e1e1e;
+    --blanc:#ffffff;
+    --gris:#c8c8c8;
+    --gris-fonce:#6a6a6a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Barlow',system-ui,sans-serif;
+    background:var(--noir);
+    color:var(--blanc);
+    line-height:1.7;
+    background-image:
+      radial-gradient(ellipse at 15% 10%, rgba(229,9,20,.10) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 90%, rgba(229,9,20,.07) 0%, transparent 55%);
+  }
+  .tattoo{font-family:'Pirata One',serif;font-weight:400;}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300&family=Montserrat:wght@400;700;900&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 20px;background:rgba(10,10,10,.92);
+    border-bottom:1px solid #2e2e2e;backdrop-filter:blur(8px);
+  }
+  nav .logo{font-family:'Pirata One',serif;font-size:1.4rem;color:var(--rouge-clair);letter-spacing:.03em;}
+  nav .links{display:flex;gap:18px;flex-wrap:wrap;}
+  nav a{color:var(--gris);text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+  nav a:hover{color:var(--rouge-clair);}
 
-  <style>
-    :root {
-      --neon-pink: #ff00ff;
-      --gold: #f1c40f;
-      --black: #000;
-      --dark: #050505;
-      --soft: #ccc;
-    }
+  /* ---------- HERO ---------- */
+  .hero{
+    text-align:center;padding:72px 20px 56px;
+    border-bottom:1px solid #222;
+  }
+  .hero .diamant{font-size:3.4rem;filter:drop-shadow(0 0 18px rgba(229,9,20,.6));animation:spin 6s linear infinite;display:inline-block;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .hero h1{
+    font-family:'Pirata One',serif;font-size:clamp(3rem,11vw,6.5rem);line-height:1.05;margin:18px 0 6px;
+    background:linear-gradient(180deg,#ff6b75 0%,var(--rouge) 45%,var(--rouge-fonce) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    filter:drop-shadow(2px 2px 0 rgba(0,0,0,.9)) drop-shadow(0 0 24px rgba(229,9,20,.45));
+  }
+  .hero .sous{
+    font-size:1.05rem;color:var(--gris);letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  }
+  .hero .sous strong{color:var(--blanc);}
+  .hero .ville{margin-top:14px;color:var(--gris-fonce);font-size:.9rem;letter-spacing:.06em;}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
+  .btn-groupe{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.note-dave{font-size:12px;color:#888;margin-top:8px}
+.btn{
+    display:inline-block;padding:15px 34px;border-radius:50px;text-decoration:none;
+    font-weight:800;letter-spacing:.06em;font-size:1rem;
+    background:linear-gradient(135deg,#ff1a25,#c00812 50%,#7a050b);
+    color:#fff;border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 8px 28px rgba(229,9,20,.45),inset 0 1px 0 rgba(255,255,255,.25);
+    transition:transform .2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn.ghost{background:transparent;border:1px solid #3a3a3a;color:var(--gris);box-shadow:none;}
+  .btn.ghost:hover{border-color:var(--rouge);color:var(--blanc);}
 
-    * {
-      box-sizing: border-box;
-    }
+  /* ---------- SECTIONS ---------- */
+  section{max-width:980px;margin:0 auto;padding:56px 20px;}
+  .kicker{
+    color:var(--rouge-clair);font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+    font-size:.8rem;margin-bottom:10px;
+  }
+  h2.tattoo{
+    font-size:clamp(2rem,7vw,3.2rem);margin-bottom:8px;
+    background:linear-gradient(180deg,#ff6b75 0%,var(--rouge) 45%,var(--rouge-fonce) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    filter:drop-shadow(2px 2px 0 rgba(0,0,0,.9));
+  }
+  .intro{color:var(--gris);margin-bottom:30px;max-width:640px;}
 
-    body {
-      background-color: var(--black);
-      color: #fff;
-      font-family: 'Cormorant Garamond', serif;
-      margin: 0;
-      text-align: center;
-      overflow-x: hidden;
-    }
+  /* ---------- CARTES ---------- */
+  .grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:700px){.grid.deux{grid-template-columns:1fr 1fr;}}
+  .carte{
+    background:linear-gradient(180deg,rgba(229,9,20,.05),transparent 40%),var(--noir2);
+    border:1px solid #2e2e2e;border-radius:20px;padding:26px;
+    box-shadow:0 12px 40px rgba(0,0,0,.5);
+  }
+  .carte h3{font-family:'Pirata One',serif;font-size:1.6rem;color:var(--blanc);margin-bottom:6px;}
+  .carte .tag{
+    display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--rouge-clair);border:1px solid rgba(229,9,20,.5);border-radius:50px;
+    padding:4px 14px;margin-bottom:12px;
+  }
+  .carte p{color:var(--gris);font-size:.96rem;}
+  .carte p strong{color:var(--blanc);}
+  .photo-projet{width:100%;max-width:400px;margin:0 auto 16px;border-radius:12px;overflow:hidden;border:2px solid var(--rouge);box-shadow:0 0 24px rgba(229,9,20,.35)}
+.photo-projet img{width:100%;height:auto;display:block}
+.photo-artiste{width:120px;height:120px;margin:0 auto 16px;border-radius:50%;overflow:hidden;border:2px solid var(--rouge);box-shadow:0 0 20px rgba(229,9,20,.3)}
+.photo-artiste img{width:100%;height:100%;object-fit:cover}
+.carte-lien{text-decoration:none;color:inherit;display:block;transition:transform .2s}
+.carte-lien:hover{transform:translateY(-4px)}
+.album-box{background:#141414;border:1px solid #2e2e2e;border-radius:16px;padding:28px 20px;max-width:480px;margin:0 auto}
+.lien-visible{color:#e50914;font-weight:600;word-break:break-all;margin-bottom:16px}
+.btn-copier{background:linear-gradient(135deg,#ff1a25,#c00812);color:#fff;border:none;border-radius:50px;padding:14px 36px;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(229,9,20,.4)}
+.btn-copier:active{transform:scale(.97)}
+.copie-ok{color:#4caf50;font-weight:600;margin-top:12px}
+.voir-plus{display:inline-block;margin-top:12px;color:var(--rouge);font-weight:700}
+.placeholder{
+    height:180px;border-radius:14px;margin-bottom:16px;
+    background:
+      repeating-linear-gradient(45deg,#1a1a1a 0 14px,#222 14px 28px);
+    border:1px dashed #3a3a3a;
+    display:flex;align-items:center;justify-content:center;
+    font-size:3rem;filter:grayscale(1);
+  }
 
-    a {
-      color: inherit;
-    }
+  /* ---------- TARIFS ---------- */
+  .prix-liste{list-style:none;margin-top:6px;}
+  .prix-liste li{
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    padding:14px 4px;border-bottom:1px solid #262626;font-size:1rem;
+  }
+  .prix-liste li:last-child{border-bottom:none;}
+  .prix-liste .montant{color:var(--rouge-clair);font-weight:800;font-size:1.15rem;white-space:nowrap;}
+  .note{
+    margin-top:18px;padding:16px 18px;border-left:3px solid var(--rouge);
+    background:rgba(229,9,20,.06);border-radius:0 12px 12px 0;color:var(--gris);font-size:.92rem;
+  }
+  .note strong{color:var(--blanc);}
 
-    .header {
-      padding: 40px 20px;
-    }
+  /* ---------- CONTACT ---------- */
+  .contact-box{
+    text-align:center;background:linear-gradient(180deg,rgba(229,9,20,.08),transparent 50%),var(--noir2);
+    border:1px solid #2e2e2e;border-radius:24px;padding:40px 26px;
+  }
+  .contact-box h2{margin-bottom:10px;}
+  .contact-box p{color:var(--gris);margin-bottom:22px;}
 
-    h1 {
-      font-size: clamp(2.2rem, 8vw, 3rem);
-      margin: 0;
-      background: linear-gradient(to right, var(--neon-pink), var(--gold));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    }
-
-    .artist-name {
-      font-family: 'Dancing Script', cursive;
-      color: var(--gold);
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-    }
-
-    .main-profile {
-      width: 220px;
-      height: 220px;
-      margin: 0 auto;
-      border-radius: 50%;
-      border: 2px solid var(--gold);
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
-    }
-
-    .main-profile img,
-    .couple-photo img,
-    .dave-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .specialties {
-      margin: 30px auto;
-      font-family: 'Montserrat', sans-serif;
-      color: var(--neon-pink);
-      border: 1px solid var(--neon-pink);
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .bio-section {
-      background: var(--dark);
-      padding: 50px 20px;
-      border-top: 1px solid #111;
-    }
-
-    .couple-photo {
-      width: 200px;
-      height: 200px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      border: 2px solid var(--gold);
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(241, 196, 15, 0.2);
-    }
-
-    .couple-photo img {
-      object-position: top;
-    }
-
-    .couple-label {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.3rem;
-      color: #888;
-      margin-bottom: 30px;
-    }
-
-    .couple-label span {
-      background: linear-gradient(to right, var(--neon-pink), #00ffff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .bio-text {
-      font-style: italic;
-      font-size: 1.1rem;
-      line-height: 1.9;
-      color: var(--soft);
-      max-width: 600px;
-      margin: 0 auto 40px;
-      padding: 0 10px;
-    }
-
-    .bio-dave {
-      background: #0a0a0a;
-      border: 1px solid #1a1a1a;
-      border-radius: 12px;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 25px 20px;
-    }
-
-    .bio-dave-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--neon-pink);
-      margin-bottom: 15px;
-    }
-
-    .bio-dave-text {
-      font-style: italic;
-      font-size: 1rem;
-      line-height: 1.8;
-      color: #aaa;
-      margin: 0;
-    }
-
-    .portfolio {
-      padding: 40px 10px;
-      background: #000;
-    }
-
-    .portfolio h2 {
-      font-weight: 300;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 30px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 0 10px 30px;
-    }
-
-    .gallery img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: transform 0.2s, opacity 0.2s;
-      background: #111;
-    }
-
-    .gallery img:active {
-      transform: scale(0.97);
-      opacity: 0.8;
-    }
-
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.95);
-      z-index: 999;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .lightbox.active {
-      display: flex;
-    }
-
-    .lightbox img {
-      max-width: 95vw;
-      max-height: 90vh;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-
-    .lightbox-close {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      color: #fff;
-      font-size: 2.5rem;
-      cursor: pointer;
-      z-index: 1000;
-      line-height: 1;
-      font-family: Arial, sans-serif;
-    }
-
-    .btn-galerie {
-      display: inline-block;
-      margin: 10px auto 10px;
-      padding: 16px 32px;
-      border: 2px solid var(--gold);
-      color: var(--gold);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 0.8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: 0.3s;
-    }
-
-    .btn-galerie:hover {
-      background: var(--gold);
-      color: #000;
-    }
-
-    .btn-note {
-      color: #666;
-      font-size: 0.7rem;
-      font-family: 'Montserrat', sans-serif;
-      font-style: italic;
-      margin: 8px 20px 10px;
-    }
-
-    .btn-copy-wrap {
-      margin-bottom: 40px;
-    }
-
-    .lien-visible {
-      display: block;
-      color: #555;
-      font-size: 0.65rem;
-      font-family: 'Montserrat', sans-serif;
-      word-break: break-all;
-      padding: 0 30px;
-      margin-bottom: 8px;
-    }
-
-    .btn-copier {
-      background: #1a1a1a;
-      border: 1px solid #444;
-      color: #aaa;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 8px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-
-    .btn-copier.copied {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    .contact-section {
-      background: #000;
-      padding: 60px 20px;
-      border-top: 1px solid #222;
-    }
-
-    .btn-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
-      max-width: 350px;
-      margin: 0 auto;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 15px;
-      text-decoration: none;
-      border-radius: 50px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      transition: 0.3s;
-    }
-
-    .btn-tiktok {
-      border: 2px solid #00ffff;
-      color: #fff;
-    }
-
-    .btn-fb {
-      background: #1877F2;
-      color: #fff;
-    }
-
-    .btn-dave {
-      background: #111;
-      border: 2px solid var(--neon-pink);
-      color: #fff;
-      border-radius: 15px;
-      padding: 10px 20px;
-      text-align: left;
-    }
-
-    .dave-img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 1px solid #fff;
-      flex-shrink: 0;
-    }
-
-    footer {
-      padding: 40px;
-      color: #444;
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    @media (min-width: 800px) {
-      .gallery {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  </style>
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;padding:36px 20px 46px;border-top:1px solid #222;
+    color:var(--gris-fonce);font-size:.85rem;letter-spacing:.06em;
+  }
+  footer .q{color:var(--rouge-clair);font-weight:700;margin-top:8px;letter-spacing:.1em;}
+</style>
 </head>
-
 <body>
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <span class="lightbox-close">✕</span>
-    <img id="lightbox-img" src="" alt="Aperçu du tatouage">
+
+<nav>
+  <div class="logo">💎 SOKALITÉ</div>
+  <div class="links">
+    <a href="#en-cours">En cours</a>
+    <a href="#album">Album</a>
+    <a href="#artistes">Artistes</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#contact">Contact</a>
   </div>
+</nav>
 
-  <div class="header">
-    <img src="https://i.postimg.cc/vgpdH6LV/Logo-png.png" alt="Logo La Sokalité" style="width:140px; height:140px; object-fit:contain; margin-bottom:16px;" loading="eager"><br>
-
-    <h1>Tattoo Sokalité</h1>
-    <div class="artist-name">Cynthia Audet Grondin</div>
-
-    <div class="main-profile">
-      <img src="https://i.postimg.cc/64nx75YD/Moi-jpg.jpg" alt="Portrait de Cynthia Audet Grondin" loading="eager">
-    </div>
-
-    <div class="specialties">Black & Grey • Dotwork • Semi-Réalisme</div>
-    <p style="font-style: italic; color: #888;">Surréalisme • Touches de couleur • 2026</p>
+<header class="hero">
+  <span class="diamant">💎</span>
+  <h1>TATTOO<br>SOKALITÉ</h1>
+  <p class="sous">par <strong>Cynthia Audet Grondin</strong> &amp; <strong>Dave Gagnon</strong></p>
+  <p class="ville">📍 L'Ancienne-Lorette, Québec (QC)</p>
+  <div class="cta-row">
+    <a class="btn" href="#contact">Réserver ton tattoo</a>
+    <a class="btn ghost" href="#en-cours">Voir nos projets</a>
   </div>
+</header>
 
-  <div class="bio-section">
-    <div class="couple-photo">
-      <img src="https://i.postimg.cc/x89836km/01D3B2AC-FCA8-4378-828D-F8F7900C234B.jpg" alt="Cynthia et Dave" loading="lazy">
-    </div>
-
-    <p class="couple-label">Cynthia & Dave — <span>La famille Sokal</span></p>
-
-    <p class="bio-text">
-      Maman de deux enfants que j'adore, et belle-maman de trois autres que j'aime tout autant, j'ai travaillé très fort ces dernières années pour réussir là où je ne croyais jamais arriver. C'est grâce à mon conjoint que j'ai découvert cette passion, et dans laquelle je compte continuer d'évoluer, de me découvrir et de créer. Ce métier me fait un bien fou, en plus de me permettre de jongler avec ma famille et les besoins de ma princesse adorée. Passionnée de tatouage depuis trois ans, je me spécialise en Black & Grey, Dotwork et Semi-Réalisme. Pour 2026, je souhaite explorer davantage le surréalisme avec des touches de couleur pour pousser ma créativité encore plus loin. Merci à tous pour votre confiance, elle me touche profondément. J'ai très hâte de vous dévoiler les projets en cours pour 2026 !
-    </p>
-
-    <div class="bio-dave">
-      <p class="bio-dave-title">Dave Gagnon — Réalisme</p>
-      <p class="bio-dave-text">
-        Dave se spécialise dans le réalisme et accepte un nombre très limité de rendez-vous. D'ici quelques mois, il se consacrera principalement à sa carrière en construction et ne tatouera plus que les projets qui le passionnent vraiment, sans obligation. Les disponibilités sont rares, si tu veux un tatouage réaliste signé Dave Gagnon, c'est maintenant qu'il faut réserver.
-      </p>
-    </div>
-  </div>
-
-  <div class="portfolio">
-    <h2>Portfolio</h2>
-
-    <div class="gallery">
-      <img src="https://i.postimg.cc/v1QJbxcR/IMG-2382.jpg" alt="Tatouage portfolio 1" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/KKJdzcMZ/IMG-2725.jpg" alt="Tatouage portfolio 2" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/7CxFwJbQ/IMG-3119.jpg" alt="Tatouage portfolio 3" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/TyCZw2Df/IMG-3320.jpg" alt="Tatouage portfolio 4" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/v1QJbxDC/IMG-3415.jpg" alt="Tatouage portfolio 5" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/jWZG5q7b/IMG-3794.jpg" alt="Tatouage portfolio 6" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/XZVR4BXm/IMG-4685.png" alt="Tatouage portfolio 7" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/Z9TG4v0Q/IMG-4686.jpg" alt="Tatouage portfolio 8" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/bdsWLjK7/image.jpg" alt="Tatouage portfolio 9" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/NypWMGHv/IMG-7326.jpg" alt="Tatouage portfolio 10" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/hJpHj4dW/IMG-7589.jpg" alt="Tatouage portfolio 11" onclick="openLightbox(this)" loading="lazy">
-      <img src="https://i.postimg.cc/QB0RtNWP/IMG-9830.jpg" alt="Tatouage portfolio 12" onclick="openLightbox(this)" loading="lazy">
-    </div>
-
-    <a href="https://www.facebook.com/share/1NgFDMaKNS/" class="btn-galerie" target="_blank" rel="noopener noreferrer">
-      📷 Voir tous mes travaux en haute qualité
+<!-- TATTOOS EN COURS -->
+<section id="en-cours">
+  <div class="kicker">En ce moment au studio</div>
+  <h2 class="tattoo">Projet en cours</h2>
+  <p class="intro">Clique pour voir ce sur quoi on travaille présentement. Les photos finales arrivent quand les pièces sont guéries et terminées à notre goût.</p>
+  <div class="grid une">
+    <a href="https://www.facebook.com/share/1NgFDMaKNS/" target="_blank" rel="noopener" class="carte carte-lien">
+      <div class="photo-projet"><img src="meduse-dos.jpg" alt="Projet en cours - dos Méduse"></div>
+      <span class="tag">En cours</span>
+      <h3>Voir nos projets en cours</h3>
+      <p>Grandes pièces <strong>black &amp; grey</strong>, dotwork et réalisme en progression. Clique pour voir l'album photo complet sur Facebook.</p>
+      <span class="voir-plus">Voir l'album →</span>
     </a>
+  </div>
+</section>
 
-    <p class="btn-note">⚠️ Si vous visitez depuis Facebook, copiez le lien ci-dessous et ouvrez-le dans Safari ou Chrome.</p>
+<!-- LIEN ALBUM FACEBOOK -->
+<section id="album">
+  <div class="kicker">Album photo</div>
+  <h2 class="tattoo">Notre portfolio Facebook</h2>
+  <p class="intro">Si le lien ne s'ouvre pas correctement, copie-le et ouvre-le dans Safari ou Chrome.</p>
+  <div class="album-box">
+    <p class="lien-visible" id="lienAlbum"><a href="https://www.facebook.com/share/1NgFDMaKNS/" target="_blank" rel="noopener" style="color:inherit">facebook.com/share/1NgFDMaKNS/</a></p>
+    <button class="btn-copier" onclick="copierLien()">📋 Copier le lien</button>
+    <p class="copie-ok" id="copieOk" style="display:none">✅ Lien copié!</p>
+  </div>
+</section>
 
-    <div class="btn-copy-wrap">
-      <span class="lien-visible">facebook.com/share/1NgFDMaKNS/</span>
-      <button class="btn-copier" onclick="copierLien()">📋 Copier le lien</button>
+<script>
+function copierLien(){
+  const lien = 'https://www.facebook.com/share/1NgFDMaKNS/';
+  navigator.clipboard.writeText(lien).then(()=>{
+    document.getElementById('copieOk').style.display = 'block';
+    setTimeout(()=>{ document.getElementById('copieOk').style.display = 'none'; }, 3000);
+  }).catch(()=>{
+    // Fallback pour vieux navigateurs
+    const t = document.createElement('textarea');
+    t.value = lien;
+    document.body.appendChild(t);
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
+    document.getElementById('copieOk').style.display = 'block';
+    setTimeout(()=>{ document.getElementById('copieOk').style.display = 'none'; }, 3000);
+  });
+}
+</script>
+
+<!-- ARTISTES -->
+<section id="artistes">
+  <div class="kicker">Les artistes</div>
+  <h2 class="tattoo">Nos styles</h2>
+  <p class="intro">Deux artistes, deux signatures. Dis-nous ton idée, on te dira qui est le meilleur fit pour ton projet.</p>
+  <div class="grid deux">
+    <div class="carte">
+      <div class="photo-artiste"><img src="https://i.postimg.cc/64nx75YD/Moi-jpg.jpg" alt="Cynthia Audet Grondin"></div>
+      <span class="tag">125 $/h</span>
+      <h3>Cynthia Audet Grondin</h3>
+      <p><strong>Black &amp; grey</strong>, <strong>dotwork / pointillisme</strong> avec touches de couleur contrôlées. Compositions légères, lettrage français, designs qui vieillissent bien sur la peau. Elle adore tracer.</p>
+    </div>
+    <div class="carte">
+      <div class="photo-artiste"><img src="https://i.postimg.cc/svCRk72z/Dave-jpg.avif" alt="Dave Gagnon"></div>
+      <span class="tag">150 $/h</span>
+      <h3>Dave Gagnon</h3>
+      <p><strong>Réaliste</strong>, <strong>semi-réaliste</strong>, pièces foncées aux <strong>beaux shadings</strong>. Rendu réaliste sur peau, whip shading maîtrisé.</p>
     </div>
   </div>
+</section>
 
-  <div class="contact-section">
-    <h3 style="font-family: Montserrat, sans-serif; letter-spacing: 3px; color: var(--gold);">NOUS REJOINDRE</h3>
-
-    <div class="btn-container">
-      <a href="https://www.tiktok.com/@lasokaliteshop" class="btn btn-tiktok" target="_blank" rel="noopener noreferrer">
-        TikTok Sokalité
-      </a>
-
-      <a href="https://www.facebook.com/share/17bipwd3sq/?mibextid=wwXIfr" class="btn btn-fb" target="_blank" rel="noopener noreferrer">
-        Facebook Pro
-      </a>
-
-      <a href="https://m.me/DaveGagnonlasokalite" class="btn btn-dave" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.postimg.cc/svCRk72z/Dave-jpg.avif" alt="Dave Gagnon" class="dave-img" loading="lazy">
-        <div style="flex-grow: 1;">
-          <span style="display: block; font-weight: 900;">DAVE GAGNON</span>
-          <span style="font-size: 0.6rem; color: #ccc; text-transform: none;">Rendez-vous Week-end</span>
-        </div>
-      </a>
+<!-- TARIFS -->
+<section id="tarifs">
+  <div class="kicker">Transparence totale</div>
+  <h2 class="tattoo">Tarifs 2027</h2>
+  <p class="intro">Pas de surprise. Les dépôts réservent ta date et ne sont jamais remboursés.</p>
+  <div class="carte">
+    <ul class="prix-liste">
+      <li><span><strong>Cynthia</strong> — taux horaire</span><span class="montant">125 $/h</span></li>
+      <li><span><strong>Cynthia</strong> — dépôt de réservation</span><span class="montant">50 $</span></li>
+      <li><span><strong>Dave</strong> — taux horaire</span><span class="montant">150 $/h</span></li>
+      <li><span><strong>Dave</strong> — dépôt de réservation</span><span class="montant">100 $</span></li>
+    </ul>
+    <div class="note">
+      <strong>À savoir :</strong> les dépôts ne sont <strong>jamais remboursés</strong>, peu importe le motif. Annulation : minimum <strong>3 jours d'avis</strong>, sinon le dépôt est gardé et un nouveau dépôt est exigé. Plus de <strong>2 annulations</strong> pour le même projet : dépôt gardé. Le dépôt est <strong>déduit du total</strong> en fin de séance. Retouches <strong>offertes moins de 3 mois</strong> après la séance. 18 ans et plus (16-17 ans avec parent présent). Formulaire de consentement signé <strong>avant</strong> le dépôt.
     </div>
   </div>
+</section>
 
-  <footer>© 2026 TATTOO SOKALITÉ • QUÉBEC CITY</footer>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <div class="kicker">Prêt à passer sous l'aiguille?</div>
+    <h2 class="tattoo">Réserve ton tattoo</h2>
+    <p>Écris-nous ton idée en un seul paragraphe : le projet, la zone du corps, la grandeur approximative et ton budget. On te répond avec une proposition et une date.</p>
+    <div class="cta-row">
+      <div class="btn-groupe">
+      <a class="btn" href="https://www.facebook.com/share/17bipwd3sq/" target="_blank" rel="noopener">Écrire à Cynthia</a>
+      <a class="btn btn-dave" href="https://www.facebook.com/share/1DvALQBv7f/?mibextid=wwXIfr" target="_blank" rel="noopener">Écrire à Dave</a>
+    </div>
+    </div>
+    <p style="margin-top:20px;font-size:.9rem;color:var(--gris-fonce);">📍 L'Ancienne-Lorette, Québec (QC)</p>
+  </div>
+</section>
 
-  <script>
-    function openLightbox(img) {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
+<footer>
+  <div>TATTOO SOKALITÉ © 2027 — Cynthia Audet Grondin &amp; Dave Gagnon</div>
+  <div class="q">Qualité Sokalite 💎</div>
+</footer>
 
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt || 'Aperçu du tatouage';
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox(event) {
-      if (!event || event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
-        document.getElementById('lightbox').classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
-
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        document.getElementById('lightbox').classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-
-    async function copierLien() {
-      const lien = 'https://www.facebook.com/share/1NgFDMaKNS/';
-      const btn = document.querySelector('.btn-copier');
-
-      try {
-        await navigator.clipboard.writeText(lien);
-        confirmationCopie(btn);
-      } catch (error) {
-        const tempInput = document.createElement('input');
-        tempInput.value = lien;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        confirmationCopie(btn);
-      }
-    }
-
-    function confirmationCopie(btn) {
-      btn.textContent = '✅ Lien copié !';
-      btn.classList.add('copied');
-
-      setTimeout(() => {
-        btn.textContent = '📋 Copier le lien';
-        btn.classList.remove('copied');
-      }, 2000);
-    }
-  </script>
 </body>
 </html>
