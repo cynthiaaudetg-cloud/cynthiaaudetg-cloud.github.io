@@ -105,13 +105,19 @@
   .orbite-logo{position:relative;display:inline-block;line-height:0;padding:46px;}
   .logo-3d{
     display:inline-block;position:relative;transform-style:preserve-3d;
-    animation:spin-logo 14s linear infinite;cursor:pointer;
-    filter:drop-shadow(0 0 22px rgba(255,10,22,.55)) drop-shadow(0 0 70px rgba(255,10,22,.28));
+    animation:spin-logo-malade 8s ease-in-out infinite;cursor:pointer;
+    filter:drop-shadow(0 0 22px rgba(0,85,255,.7)) drop-shadow(0 0 70px rgba(0,85,255,.35)) drop-shadow(0 0 30px rgba(255,10,22,.4));
     transition:filter .3s;
   }
-  .logo-3d:hover{animation-duration:30s;filter:drop-shadow(0 0 30px rgba(255,10,22,.8)) drop-shadow(0 0 90px rgba(255,10,22,.4));}
+  .logo-3d:hover{animation-duration:20s;filter:drop-shadow(0 0 30px rgba(0,85,255,1)) drop-shadow(0 0 90px rgba(0,85,255,.5)) drop-shadow(0 0 40px rgba(255,10,22,.5));}
   .logo-3d img{width:min(66vw,300px);height:auto;display:block;}
-  @keyframes spin-logo{from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}
+  @keyframes spin-logo-malade{
+    0%{transform:perspective(900px) rotateY(0deg) rotateX(0deg) translateZ(0) scale(1);}
+    25%{transform:perspective(900px) rotateY(90deg) rotateX(8deg) translateZ(40px) scale(1.03);}
+    50%{transform:perspective(900px) rotateY(180deg) rotateX(0deg) translateZ(0) scale(1);}
+    75%{transform:perspective(900px) rotateY(270deg) rotateX(-8deg) translateZ(40px) scale(1.03);}
+    100%{transform:perspective(900px) rotateY(360deg) rotateX(0deg) translateZ(0) scale(1);}
+  }
   /* Reflet brillant qui traverse le logo en boucle */
   .logo-3d .shiny{
     position:absolute;inset:-4%;pointer-events:none;border-radius:50%;
