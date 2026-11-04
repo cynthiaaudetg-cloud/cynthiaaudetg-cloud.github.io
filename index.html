@@ -802,10 +802,44 @@
     10%{opacity:1;}
     100%{top:60px;left:90%;opacity:0;transform:translate(0,0) scale(1.2);}
   }
-  /* ========== BLEU ÉLECTRIQUE MAXIMUM ========== */
-  /* Fond du hero avec teinte bleue */
-  .hero::before{
-    background:radial-gradient(ellipse at 70% 30%,rgba(0,180,255,.12),transparent 60%) !important;
+  /* ========== BLEU FONCÉ ÉLECTRIQUE DOMINANT (Cynthia préfère le bleu au rouge) ========== */
+  :root{--blue-elec:#0066ff;--blue-elec-clair:#00b4ff;}
+  /* Footer : NOUVEL effet - halo pulsant au lieu des cercles */
+  footer .logo-pied::before{
+    content:"";position:absolute;inset:-20px;
+    background:radial-gradient(circle,rgba(0,102,255,.3),transparent 70%);
+    border-radius:50%;
+    animation:halo-pulse 3s ease-in-out infinite;
+    border:none;
+  }
+  footer .logo-pied::after{
+    content:"";position:absolute;inset:-35px;
+    background:radial-gradient(circle,rgba(0,102,255,.15),transparent 70%);
+    border-radius:50%;
+    animation:halo-pulse 4s ease-in-out infinite;
+    animation-delay:1s;
+    border:none;
+  }
+  @keyframes halo-pulse{
+    0%,100%{transform:scale(1);opacity:.7;}
+    50%{transform:scale(1.15);opacity:1;}
+  }
+  /* Diamants : effet DIFFÉRENT pour chacun */
+  .divider:nth-of-type(1) span{animation:diamant-3d 4s ease-in-out infinite;}
+  .divider:nth-of-type(2) span{animation:diamant-rebond 2.5s ease-in-out infinite;}
+  .divider:nth-of-type(3) span{animation:diamant-tourbillon 3s linear infinite;}
+  .divider:nth-of-type(4) span{animation:diamant-pulse 2s ease-in-out infinite;}
+  .divider:nth-of-type(5) span{animation:diamant-3d 5s ease-in-out infinite reverse;}
+  .divider:nth-of-type(6) span{animation:diamant-rebond 3s ease-in-out infinite;}
+  .divider:nth-of-type(7) span{animation:diamant-arcenciel 6s linear infinite;}
+  @keyframes diamant-rebond{
+    0%,100%{transform:translateY(0) scale(1);}
+    50%{transform:translateY(-12px) scale(1.1);}
+  }
+  @keyframes diamant-tourbillon{
+    0%{transform:rotate(0deg) scale(1);}
+    50%{transform:rotate(180deg) scale(1.2);}
+    100%{transform:rotate(360deg) scale(1);}
   }
   /* Tous les boutons avec bordure bleue */
   .btn{
