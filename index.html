@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TATTOO SOKALITÉ — Cynthia Audet Grondin & Dave Gagnon</title>
 <meta name="description" content="Tattoo Sokalité — studio de tatouage à L'Ancienne-Lorette. Cynthia Audet Grondin & Dave Gagnon. Qualité Sokalite 💎">
+  <!-- Open Graph pour Facebook : logo comme image de partage -->
+  <meta property="og:title" content="Tattoo Sokalité 💎 — Cynthia & Dave">
+  <meta property="og:description" content="Studio de tatouage à L'Ancienne-Lorette. Qualité Sokalite!">
+  <meta property="og:image" content="https://cynthiaaudetg-cloud.github.io/logo-tattoo-sokalite-blanc.png">
+  <meta property="og:url" content="https://cynthiaaudetg-cloud.github.io">
+  <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -1625,6 +1631,27 @@
   </div>
 </div>
 
+
+<!-- TATOUE L'ÉCRAN - hook interactif unique -->
+<section id="tatoue" class="reveal">
+  <div class="kicker">100 % interactif</div>
+  <h2 class="tattoo">Tatoue l'écran!</h2>
+  <p class="intro">Curieux de voir ce que ça fait de tenir la machine? Choisis ton aiguille, puis c'est toi l'artiste : trace sur la peau synthétique!</p>
+  <div class="aiguilles-choix" role="group" aria-label="Choisis ton aiguille">
+    <button type="button" class="aig-btn actif" data-aig="liner"><span class="aig-ico">✒️</span><strong>Liner 3RL</strong><em>lignes fines et nettes</em></button>
+    <button type="button" class="aig-btn" data-aig="shader"><span class="aig-ico">🖌️</span><strong>Shader 7RS</strong><em>ombrage doux</em></button>
+    <button type="button" class="aig-btn" data-aig="magnum"><span class="aig-ico">🧱</span><strong>Magnum 15M1</strong><em>remplissage et ombrage</em></button>
+    <button type="button" class="aig-btn" data-aig="dotwork"><span class="aig-ico">🔘</span><strong>Dotwork</strong><em>pointillisme</em></button>
+  </div>
+  <div class="peau-wrap">
+    <canvas id="peauCanvas" width="800" height="420" aria-label="Peau synthétique interactive, trace avec ton curseur pour tatouer"></canvas>
+    <div class="aiguille" id="aiguille" aria-hidden="true"><span>🖊️</span></div>
+  </div>
+  <div class="tatoue-actions">
+    <button class="btn petit" id="resetPeau" type="button">🧽 Recommencer</button>
+    <span class="astuce-peau">Astuce : bouge lentement pour des lignes nettes, comme une vraie machine!</span>
+  </div>
+</section>
 <!-- TATTOOS EN COURS -->
 <section id="en-cours" class="reveal">
   <div class="kicker">En ce moment au studio</div>
@@ -1647,27 +1674,6 @@
 
 <div class="divider" aria-hidden="true"><span>💎</span></div>
 <div class="section-drip" aria-hidden="true"></div>
-
-<!-- TATOUE L'ÉCRAN - hook interactif unique -->
-<section id="tatoue" class="reveal">
-  <div class="kicker">100 % interactif</div>
-  <h2 class="tattoo">Tatoue l'écran!</h2>
-  <p class="intro">Curieux de voir ce que ça fait de tenir la machine? Choisis ton aiguille, puis c'est toi l'artiste : trace sur la peau synthétique!</p>
-  <div class="aiguilles-choix" role="group" aria-label="Choisis ton aiguille">
-    <button type="button" class="aig-btn actif" data-aig="liner"><span class="aig-ico">✒️</span><strong>Liner 3RL</strong><em>lignes fines et nettes</em></button>
-    <button type="button" class="aig-btn" data-aig="shader"><span class="aig-ico">🖌️</span><strong>Shader 7RS</strong><em>ombrage doux</em></button>
-    <button type="button" class="aig-btn" data-aig="magnum"><span class="aig-ico">🧱</span><strong>Magnum 15M1</strong><em>remplissage et ombrage</em></button>
-    <button type="button" class="aig-btn" data-aig="dotwork"><span class="aig-ico">🔘</span><strong>Dotwork</strong><em>pointillisme</em></button>
-  </div>
-  <div class="peau-wrap">
-    <canvas id="peauCanvas" width="800" height="420" aria-label="Peau synthétique interactive, trace avec ton curseur pour tatouer"></canvas>
-    <div class="aiguille" id="aiguille" aria-hidden="true"><span>🖊️</span></div>
-  </div>
-  <div class="tatoue-actions">
-    <button class="btn petit" id="resetPeau" type="button">🧽 Recommencer</button>
-    <span class="astuce-peau">Astuce : bouge lentement pour des lignes nettes, comme une vraie machine!</span>
-  </div>
-</section>
 
 <div class="divider" aria-hidden="true"><span>💎</span></div>
 <div class="section-drip" aria-hidden="true"></div>
@@ -1726,6 +1732,7 @@
   <div class="stats-strip" aria-label="Nos engagements">
     <div class="stat"><span class="stat-chiffre" data-cible="100">0</span><span class="stat-suffixe">%</span><span class="stat-label">consentement signé</span></div>
     <div class="stat"><span class="stat-chiffre" data-cible="10">0</span><span class="stat-suffixe">+</span><span class="stat-label">ans d'expérience (Dave)</span></div>
+    <div class="stat"><span class="stat-chiffre" data-cible="3">0</span><span class="stat-suffixe"></span><span class="stat-label">ans d'expérience (Cynthia, bientôt 4)</span></div>
     <div class="stat"><span class="stat-chiffre" data-cible="2">0</span><span class="stat-label">artistes passionnés</span></div>
   </div>
 
