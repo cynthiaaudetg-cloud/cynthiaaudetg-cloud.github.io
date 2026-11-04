@@ -898,6 +898,59 @@
   @media (hover:none){.goutte-curseur,.goutte-pointe{display:none;}.peau-wrap{cursor:default;}}
   @media (prefers-reduced-motion:reduce){.goutte-curseur{animation:none;}.goutte-trail{display:none;}}
   #artistes .carte{will-change:transform;}
+  /* --- Boutons 3D du bas : effet physique impressionnant --- */
+  .btn-3d{
+    transform:perspective(600px) rotateX(8deg);
+    transform-style:preserve-3d;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.4),
+      0 4px 0 #4a6a9c,
+      0 6px 0 #3d5a86,
+      0 8px 0 #334e75,
+      0 10px 0 #2a4162,
+      0 14px 20px rgba(0,0,0,.5),
+      0 18px 32px rgba(143,180,221,.25) !important;
+    transition:transform .15s ease,box-shadow .15s ease !important;
+    animation:none !important;
+  }
+  .btn-3d:hover{
+    transform:perspective(600px) rotateX(4deg) translateY(2px) !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.4),
+      0 3px 0 #4a6a9c,
+      0 5px 0 #3d5a86,
+      0 7px 0 #334e75,
+      0 10px 16px rgba(0,0,0,.5),
+      0 14px 28px rgba(143,180,221,.35) !important;
+  }
+  .btn-3d:active{
+    transform:perspective(600px) rotateX(0deg) translateY(8px) !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.3),
+      0 1px 0 #4a6a9c,
+      0 4px 10px rgba(0,0,0,.5) !important;
+  }
+  @media (prefers-reduced-motion:reduce){.btn-3d{transform:none;}}
+  /* --- Logo du bas WOW : flotte + glow néon --- */
+  .logo-wow img{
+    animation:logo-flotte 4s ease-in-out infinite;
+    filter:drop-shadow(0 0 18px rgba(255,10,22,.45)) drop-shadow(0 0 45px rgba(143,180,221,.2));
+  }
+  @keyframes logo-flotte{
+    0%,100%{transform:translateY(0) rotate(-1deg);}
+    50%{transform:translateY(-8px) rotate(1deg);}
+  }
+  .logo-wow img:hover{
+    animation:none;
+    transform:perspective(500px) rotateY(12deg) scale(1.06);
+    filter:drop-shadow(0 0 28px rgba(255,10,22,.7)) drop-shadow(0 0 60px rgba(143,180,221,.35));
+    transition:transform .3s ease,filter .3s ease;
+  }
+  /* Bouton secret Cynthia : ne pas compter ses visites */
+  .cynthia-secret{margin-top:14px;opacity:.35;}
+  .cynthia-secret a{color:#666;text-decoration:none;font-size:1rem;}
+  .cynthia-secret a:hover{opacity:1;}
+  @media (prefers-reduced-motion:reduce){.logo-wow img{animation:none;}}
   .photo-artiste{position:relative;overflow:hidden;}
   .photo-glare{
     position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;transition:opacity .35s ease;
@@ -1383,8 +1436,8 @@ function copierLien(){
     <p>Écris-nous ton idée en un seul paragraphe : le projet, la zone du corps, la grandeur approximative et ton budget. On te répond avec une proposition et une date.</p>
     <div class="cta-row">
       <div class="btn-groupe">
-      <a class="btn or" href="https://www.facebook.com/share/17bipwd3sq/" target="_blank" rel="noopener">⚡ Écrire à Cynthia</a>
-      <a class="btn or" href="https://www.facebook.com/share/1DvALQBv7f/?mibextid=wwXIfr" target="_blank" rel="noopener">⚡ Écrire à Dave</a>
+      <a class="btn or btn-3d" href="https://www.facebook.com/share/17bipwd3sq/" target="_blank" rel="noopener">⚡ Écrire à Cynthia</a>
+      <a class="btn or btn-3d" href="https://www.facebook.com/share/1DvALQBv7f/?mibextid=wwXIfr" target="_blank" rel="noopener">⚡ Écrire à Dave</a>
     </div>
     </div>
     <p style="margin-top:20px;font-size:.9rem;color:var(--gris-fonce);">📍 L'Ancienne-Lorette, Québec (QC)</p>
@@ -1394,16 +1447,34 @@ function copierLien(){
 
 <!-- Barre CTA collante (mobile) -->
 <div class="cta-sticky" id="ctaSticky">
-  <a class="btn or" href="#contact">⚡ Réserver mon flash</a>
+  <a class="btn or btn-3d" href="#contact">⚡ Réserver mon flash</a>
 </div>
 
 <footer>
-  <div class="logo-pied"><img src="logo-tattoo-sokalite-blanc.png" alt="Tattoo Sokalité" loading="lazy"></div>
+  <div class="logo-pied logo-wow"><img src="logo-tattoo-sokalite-blanc.png" alt="Tattoo Sokalité" loading="lazy"></div>
   <div>TATTOO SOKALITÉ © 2027 — Cynthia Audet Grondin &amp; Dave Gagnon</div>
   <div class="q">Qualité Sokalite 💎</div>
+  <div class="cynthia-secret"><a href="#" id="cynthiaNePasCompter" title="Cynthia seulement">🔒</a></div>
 </footer>
 
 <script>
+/* Bouton secret Cynthia : ne plus compter ses visites */
+(function(){
+  var btn = document.getElementById('cynthiaNePasCompter');
+  if(!btn) return;
+  /* Si déjà exclue, cache le bouton */
+  try{
+    if(localStorage.getItem('gc_ignore') === '1'){ btn.parentElement.style.display = 'none'; return; }
+  }catch(e){}
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    try{ localStorage.setItem('gc_ignore', '1'); }catch(err){}
+    btn.textContent = '✅';
+    btn.title = 'Tes visites ne sont plus comptées!';
+    setTimeout(function(){ btn.parentElement.style.display = 'none'; }, 1500);
+  });
+})();
+
 /* Apparition douce des sections au scroll */
 (function(){
   if('IntersectionObserver' in window){
