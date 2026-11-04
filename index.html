@@ -686,6 +686,100 @@
     0%,100%{opacity:.3;transform:scale(1);}
     50%{opacity:.8;transform:scale(1.1);}
   }
+  /* ========== PARTICULES FLOTTANTES dans tout le site ========== */
+  body::after{
+    content:"✦ · ✧ · ✦ · ✧ · ✦";
+    position:fixed;top:0;left:0;right:0;z-index:1;pointer-events:none;
+    text-align:center;font-size:1rem;letter-spacing:3rem;
+    color:rgba(0,180,255,.15);
+    animation:particules-flottent 12s linear infinite;
+  }
+  @keyframes particules-flottent{
+    0%{transform:translateY(-20px);opacity:0;}
+    10%{opacity:1;}
+    90%{opacity:1;}
+    100%{transform:translateY(100vh);opacity:0;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    body::after{animation:none;display:none;}
+  }
+  /* ========== MAXIMUM WOW : chaque section son effet signature ========== */
+  /* EN COURS : bordure tournante */
+  #en-cours .carte{
+    position:relative;
+  }
+  #en-cours .carte::before{
+    content:"";position:absolute;inset:-3px;border-radius:inherit;z-index:-1;
+    background:conic-gradient(from 0deg,#ff0a16,#00b4ff,#ff0a16);
+    animation:bordure-tourne 4s linear infinite;
+    filter:blur(8px);opacity:.6;
+  }
+  @keyframes bordure-tourne{to{transform:rotate(360deg);}}
+  /* TATOUE : motif animé en fond */
+  #tatoue{
+    background-image:radial-gradient(circle at 50% 50%,rgba(0,180,255,.05) 0%,transparent 70%);
+    background-size:200% 200%;
+    animation:tatoue-fond 6s ease-in-out infinite;
+  }
+  @keyframes tatoue-fond{
+    0%,100%{background-position:0% 0%;}
+    50%{background-position:100% 100%;}
+  }
+  /* ARTISTES : zoom photo au survol */
+  #artistes .photo-artiste img{
+    transition:transform .4s ease;
+  }
+  #artistes .photo-artiste:hover img{
+    transform:scale(1.08);
+  }
+  /* TARIFS : prix avec scintillement */
+  #tarifs .prix{
+    animation:prix-scintille 2.5s ease-in-out infinite;
+  }
+  @keyframes prix-scintille{
+    0%,100%{text-shadow:0 0 10px rgba(255,10,22,.6);}
+    50%{text-shadow:0 0 24px rgba(255,10,22,1),0 0 40px rgba(0,180,255,.4);}
+  }
+  /* AVANT : stats qui pulsent */
+  #avant .stat{
+    animation:stat-pulse 3s ease-in-out infinite;
+  }
+  #avant .stat:nth-child(2){animation-delay:.5s;}
+  #avant .stat:nth-child(3){animation-delay:1s;}
+  @keyframes stat-pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+  }
+  /* ALBUM : images avec zoom et glow */
+  #album img{
+    transition:transform .3s ease,box-shadow .3s ease;
+  }
+  #album img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(0,180,255,.4);
+  }
+  /* FLASHS : cartes avec glow au survol */
+  #flashs .flash-carte{
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  #flashs .flash-carte:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 40px rgba(255,10,22,.3),0 0 30px rgba(0,180,255,.2);
+  }
+  /* CONTACT : champs avec glow */
+  #contact input,#contact textarea{
+    transition:box-shadow .25s ease,border-color .25s ease;
+  }
+  #contact input:focus,#contact textarea:focus{
+    border-color:#00b4ff !important;
+    box-shadow:0 0 16px rgba(0,180,255,.4) !important;
+    outline:none;
+  }
+  @media (prefers-reduced-motion:reduce){
+    #en-cours .carte::before,#tatoue,#artistes .photo-artiste img,
+    #tarifs .prix,#avant .stat,#album img,#flashs .flash-carte{animation:none;}
+    #artistes .photo-artiste:hover img,#album img:hover,#flashs .flash-carte:hover{transform:none;}
+  }
   /* Étoiles filantes autour du logo du bas */
   .logo-pied{
     position:relative;
