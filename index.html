@@ -1159,19 +1159,7 @@
     position:relative;display:inline-block;
     margin-bottom:14px;
   }
-  footer .logo-pied::before{
-    content:"";position:absolute;inset:-18px;
-    border:2px dashed rgba(255,10,22,.6);border-radius:50%;
-    animation:logo-anneau 12s linear infinite;
-    filter:drop-shadow(0 0 8px rgba(255,10,22,.5));
-  }
-  footer .logo-pied::after{
-    content:"";position:absolute;inset:-32px;
-    border:2px solid rgba(0,180,255,.6);border-radius:50%;
-    animation:logo-anneau 20s linear infinite reverse;
-    filter:drop-shadow(0 0 12px rgba(0,180,255,.6));
-  }
-  @keyframes logo-anneau{to{transform:rotate(360deg);}}
+  /* ANCIENS cercles supprimés - remplacés par halos pulsants (voir plus haut) */
   footer .logo-pied img{
     height:88px;width:auto;
     filter:drop-shadow(0 0 20px rgba(0,180,255,.7)) drop-shadow(0 0 50px rgba(255,10,22,.4));
