@@ -1510,7 +1510,7 @@
   /* --- Particules d'étincelles (explosion au clic sur les CTA) --- */
   .etincelle{
     position:fixed;z-index:10001;pointer-events:none;border-radius:50%;
-    width:8px;height:8px;margin:-4px 0 0 -4px;
+    width:14px;height:14px;margin:-4px 0 0 -4px;
   }
   /* --- Pluie de diamants (easter egg du footer) --- */
   .diamant-pluie{
@@ -3027,8 +3027,8 @@ function copierLien(){
     var c = couleurs[Math.floor(Math.random()*couleurs.length)];
     var boule = document.createElement('div');
     boule.className = 'boule-3d-degouline';
-    boule.style.left = (x - 20) + 'px';
-    boule.style.top = (y - 20) + 'px';
+    boule.style.left = (x - 30) + 'px';
+    boule.style.top = (y - 30) + 'px';
     boule.style.background = c.fond;
     boule.style.boxShadow = c.glow + ', inset -5px -5px 10px rgba(0,0,0,.4), inset 5px 5px 10px rgba(255,255,255,.3)';
     document.body.appendChild(boule);
@@ -3050,7 +3050,7 @@ function copierLien(){
 /* Gouttes d'encre bleu électrique qui suivent le curseur */
 .encre-curseur-goutte{
   position:fixed;
-  width:8px;height:8px;
+  width:14px;height:14px;
   border-radius:50% 50% 50% 0;
   transform:rotate(-45deg);
   background:radial-gradient(circle at 30% 30%, #66aaff, #0055ff 60%, #0033aa);
@@ -3069,7 +3069,7 @@ function copierLien(){
 /* Boules 3D qui dégoulinent au clic */
 .boule-3d-degouline{
   position:fixed;
-  width:40px;height:40px;
+  width:60px;height:60px;
   border-radius:50%;
   pointer-events:none;
   z-index:10000;
