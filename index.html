@@ -2996,19 +2996,34 @@ function copierLien(){
 
 /* ===== CURSEUR GOUTTE D'ENCRE BLEU ÉLECTRIQUE FLASH ===== */
 (function(){
-  if(window.matchMedia('(hover:none)').matches) return; // pas sur tactile
   var lastDrop = 0;
-  document.addEventListener('mousemove', function(e){
+  function creerGoutte(x, y){
     var now = Date.now();
-    if(now - lastDrop < 60) return; // limite le nombre de gouttes
+    if(now - lastDrop < 60) return;
     lastDrop = now;
+    var c = couleurs[Math.floor(Math.random()*couleurs.length)];
     var drop = document.createElement('div');
     drop.className = 'encre-curseur-goutte';
-    drop.style.left = (e.clientX + (Math.random()*10-5)) + 'px';
-    drop.style.top = (e.clientY + (Math.random()*10-5)) + 'px';
+    drop.style.background = c.fond;
+    drop.style.boxShadow = c.glow;
+    drop.dataset.flash = c.flash;
+    drop.style.left = (x + (Math.random()*10-5)) + 'px';
+    drop.style.top = (y + (Math.random()*10-5)) + 'px';
     document.body.appendChild(drop);
     setTimeout(function(){ drop.remove(); }, 800);
+  }
+  document.addEventListener('mousemove', function(e){
+    creerGoutte(e.clientX, e.clientY);
   });
+  // Sur tactile : goutte où on touche
+  document.addEventListener('touchstart', function(e){
+    var t = e.touches[0];
+    creerGoutte(t.clientX, t.clientY);
+  }, {passive:true});
+  document.addEventListener('touchmove', function(e){
+    var t = e.touches[0];
+    creerGoutte(t.clientX, t.clientY);
+  }, {passive:true});
 })();
 </script>
 
@@ -3027,10 +3042,10 @@ function copierLien(){
 }
 @keyframes goutte-encre-flash{
   0%{opacity:1;transform:rotate(-45deg) scale(1);}
-  50%{opacity:.9;transform:rotate(-45deg) scale(1.3);box-shadow:0 0 20px rgba(0,85,255,1), 0 0 40px rgba(0,85,255,.6);}
+  50%{opacity:.9;transform:rotate(-45deg) scale(1.4);}
   100%{opacity:0;transform:rotate(-45deg) scale(.3) translateY(10px);}
 }
-@media (hover:none){.encre-curseur-goutte{display:none;}}
+/* gouttes visibles aussi au toucher */
 @media (prefers-reduced-motion:reduce){.encre-curseur-goutte{display:none;}}
 </style>
 
