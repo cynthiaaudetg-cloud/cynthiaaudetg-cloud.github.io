@@ -403,11 +403,11 @@
   /* Séparateur REMPLACÉ : ligne lumineuse animée (les drips ne fonctionnaient pas) */
   .section-drip{
     height:4px;margin:20px 10%;position:relative;overflow:visible;z-index:5;
-    background:linear-gradient(90deg,transparent,#ff0a16 20%,#00b4ff 50%,#ff0a16 80%,transparent);
+    background:linear-gradient(90deg,transparent,#ff0a16 20%,#0055ff 50%,#ff0a16 80%,transparent);
     background-size:200% 100%;
     border-radius:4px;
     animation:ligne-coule 3s linear infinite;
-    filter:drop-shadow(0 0 12px rgba(255,10,22,.5)) drop-shadow(0 0 20px rgba(0,180,255,.3));
+    filter:drop-shadow(0 0 12px rgba(255,10,22,.5)) drop-shadow(0 0 20px rgba(0,85,255,.3));
   }
   @keyframes ligne-coule{
     0%{background-position:200% 0;}
@@ -596,11 +596,11 @@
     #album .carte:hover,#tarifs .prix-liste li:hover{transform:none;}
   }
   /* ========== BLEU ÉLECTRIQUE : accents contrastés AMPLIFIÉS ========== */
-  :root{--blue-elec:#00b4ff;}
+  :root{--blue-elec:#0055ff;}
   /* Kickers alternés rouge/bleu - PLUS visibles */
   #artistes .kicker,#album .kicker,#contact .kicker{
     color:var(--blue-elec);
-    text-shadow:0 0 16px rgba(0,180,255,.8),0 0 48px rgba(0,180,255,.35);
+    text-shadow:0 0 16px rgba(0,85,255,.8),0 0 48px rgba(0,85,255,.35);
     font-size:1.1em;
   }
   #en-cours .kicker,#tatoue .kicker,#tarifs .kicker,#avant .kicker,#flashs .kicker{
@@ -610,23 +610,23 @@
   }
   /* Sections : halo coloré permanent PLUS intense */
   #en-cours .carte{box-shadow:0 0 40px rgba(255,10,22,.25),0 0 80px rgba(255,10,22,.1);}
-  #artistes .carte{box-shadow:0 0 40px rgba(0,180,255,.25),0 0 80px rgba(0,180,255,.1);}
+  #artistes .carte{box-shadow:0 0 40px rgba(0,85,255,.25),0 0 80px rgba(0,85,255,.1);}
   #tarifs .carte{box-shadow:0 0 40px rgba(255,10,22,.25),0 0 80px rgba(255,10,22,.1);}
-  #avant .carte{box-shadow:0 0 40px rgba(0,180,255,.25),0 0 80px rgba(0,180,255,.1);}
+  #avant .carte{box-shadow:0 0 40px rgba(0,85,255,.25),0 0 80px rgba(0,85,255,.1);}
   #album .carte{box-shadow:0 0 40px rgba(255,10,22,.25),0 0 80px rgba(255,10,22,.1);}
-  #flashs .carte{box-shadow:0 0 40px rgba(0,180,255,.25),0 0 80px rgba(0,180,255,.1);}
-  #tatoue .carte{box-shadow:0 0 40px rgba(0,180,255,.2),0 0 80px rgba(255,10,22,.15);}
+  #flashs .carte{box-shadow:0 0 40px rgba(0,85,255,.25),0 0 80px rgba(0,85,255,.1);}
+  #tatoue .carte{box-shadow:0 0 40px rgba(0,85,255,.2),0 0 80px rgba(255,10,22,.15);}
   /* Boutons avec glow bleu au survol */
   .btn:not(.btn-venom):hover{
-    box-shadow:0 0 24px rgba(0,180,255,.35),0 8px 24px rgba(0,0,0,.4);
+    box-shadow:0 0 24px rgba(0,85,255,.35),0 8px 24px rgba(0,0,0,.4);
   }
   /* Séparateurs avec plus de bleu */
   .divider span{
-    text-shadow:0 0 8px rgba(0,180,255,.6);
+    text-shadow:0 0 8px rgba(0,85,255,.6);
   }
   /* Titres de section : lueur bleue subtile en plus du rouge */
   h2.tattoo{
-    filter:drop-shadow(2px 2px 0 rgba(0,0,0,.9)) drop-shadow(0 0 24px rgba(0,180,255,.15));
+    filter:drop-shadow(2px 2px 0 rgba(0,0,0,.9)) drop-shadow(0 0 24px rgba(0,85,255,.15));
   }
   /* ========== DIAMANT 3D + ÉTOILES FILANTES au footer ========== */
   .divider{
@@ -646,8 +646,8 @@
     75%{transform:rotateY(270deg) scale(1.2);}
   }
   @keyframes diamant-pulse{
-    0%,100%{filter:drop-shadow(0 0 12px rgba(0,180,255,.8));}
-    50%{filter:drop-shadow(0 0 28px rgba(0,180,255,1)) drop-shadow(0 0 48px rgba(255,10,22,.5));}
+    0%,100%{filter:drop-shadow(0 0 12px rgba(0,85,255,.8));}
+    50%{filter:drop-shadow(0 0 28px rgba(0,85,255,1)) drop-shadow(0 0 48px rgba(255,10,22,.5));}
   }
   @keyframes diamant-sparkle{
     0%,100%{opacity:1;}
@@ -662,11 +662,11 @@
   .hero{
     background:
       radial-gradient(ellipse at 20% 20%,rgba(255,10,22,.12),transparent 50%),
-      radial-gradient(ellipse at 80% 80%,rgba(0,180,255,.12),transparent 50%) !important;
+      radial-gradient(ellipse at 80% 80%,rgba(0,85,255,.12),transparent 50%) !important;
   }
   /* Sections avec double halo rouge/bleu */
   .carte{
-    box-shadow:0 0 30px rgba(255,10,22,.15),0 0 30px rgba(0,180,255,.15) !important;
+    box-shadow:0 0 30px rgba(255,10,22,.15),0 0 30px rgba(0,85,255,.15) !important;
   }
   /* Étoiles scintillantes dans le hero */
   .hero::after{
@@ -685,7 +685,7 @@
     content:"✦ · ✧ · ✦ · ✧ · ✦";
     position:fixed;top:0;left:0;right:0;z-index:1;pointer-events:none;
     text-align:center;font-size:1rem;letter-spacing:3rem;
-    color:rgba(0,180,255,.15);
+    color:rgba(0,85,255,.15);
     animation:particules-flottent 12s linear infinite;
   }
   @keyframes particules-flottent{
@@ -704,14 +704,14 @@
   }
   #en-cours .carte::before{
     content:"";position:absolute;inset:-3px;border-radius:inherit;z-index:-1;
-    background:conic-gradient(from 0deg,#ff0a16,#00b4ff,#ff0a16);
+    background:conic-gradient(from 0deg,#ff0a16,#0055ff,#ff0a16);
     animation:bordure-tourne 4s linear infinite;
     filter:blur(8px);opacity:.6;
   }
   @keyframes bordure-tourne{to{transform:rotate(360deg);}}
   /* TATOUE : motif animé en fond */
   #tatoue{
-    background-image:radial-gradient(circle at 50% 50%,rgba(0,180,255,.05) 0%,transparent 70%);
+    background-image:radial-gradient(circle at 50% 50%,rgba(0,85,255,.05) 0%,transparent 70%);
     background-size:200% 200%;
     animation:tatoue-fond 6s ease-in-out infinite;
   }
@@ -732,7 +732,7 @@
   }
   @keyframes prix-scintille{
     0%,100%{text-shadow:0 0 10px rgba(255,10,22,.6);}
-    50%{text-shadow:0 0 24px rgba(255,10,22,1),0 0 40px rgba(0,180,255,.4);}
+    50%{text-shadow:0 0 24px rgba(255,10,22,1),0 0 40px rgba(0,85,255,.4);}
   }
   /* AVANT : stats qui pulsent */
   #avant .stat{
@@ -750,7 +750,7 @@
   }
   #album img:hover{
     transform:scale(1.05);
-    box-shadow:0 0 30px rgba(0,180,255,.4);
+    box-shadow:0 0 30px rgba(0,85,255,.4);
   }
   /* FLASHS : cartes avec glow au survol */
   #flashs .flash-carte{
@@ -758,15 +758,15 @@
   }
   #flashs .flash-carte:hover{
     transform:translateY(-5px);
-    box-shadow:0 12px 40px rgba(255,10,22,.3),0 0 30px rgba(0,180,255,.2);
+    box-shadow:0 12px 40px rgba(255,10,22,.3),0 0 30px rgba(0,85,255,.2);
   }
   /* CONTACT : champs avec glow */
   #contact input,#contact textarea{
     transition:box-shadow .25s ease,border-color .25s ease;
   }
   #contact input:focus,#contact textarea:focus{
-    border-color:#00b4ff !important;
-    box-shadow:0 0 16px rgba(0,180,255,.4) !important;
+    border-color:#0055ff !important;
+    box-shadow:0 0 16px rgba(0,85,255,.4) !important;
     outline:none;
   }
   @media (prefers-reduced-motion:reduce){
@@ -803,7 +803,7 @@
     100%{top:60px;left:90%;opacity:0;transform:translate(0,0) scale(1.2);}
   }
   /* ========== BLEU FONCÉ ÉLECTRIQUE DOMINANT (Cynthia préfère le bleu au rouge) ========== */
-  :root{--blue-elec:#0066ff;--blue-elec-clair:#00b4ff;}
+  :root{--blue-elec:#0066ff;--blue-elec-clair:#0055ff;}
   /* Footer : NOUVEL effet - halo pulsant au lieu des cercles */
   footer .logo-pied::before{
     content:"";position:absolute;inset:-20px;
@@ -843,26 +843,26 @@
   }
   /* Tous les boutons avec bordure bleue */
   .btn{
-    border:1px solid rgba(0,180,255,.3) !important;
+    border:1px solid rgba(0,85,255,.3) !important;
   }
   .btn:hover{
-    border-color:rgba(0,180,255,.8) !important;
+    border-color:rgba(0,85,255,.8) !important;
   }
   /* Titres avec double lueur rouge ET bleue */
   h2.tattoo{
-    filter:drop-shadow(2px 2px 0 rgba(0,0,0,.9)) drop-shadow(0 0 24px rgba(0,180,255,.3)) drop-shadow(0 0 48px rgba(255,10,22,.2));
+    filter:drop-shadow(2px 2px 0 rgba(0,0,0,.9)) drop-shadow(0 0 24px rgba(0,85,255,.3)) drop-shadow(0 0 48px rgba(255,10,22,.2));
   }
   /* Cartes avec bordure bleue subtile */
   .carte{
-    border:1px solid rgba(0,180,255,.15) !important;
+    border:1px solid rgba(0,85,255,.15) !important;
   }
   /* Footer avec glow bleu */
   footer{
-    box-shadow:inset 0 0 60px rgba(0,180,255,.08);
+    box-shadow:inset 0 0 60px rgba(0,85,255,.08);
   }
   /* Liens avec glow bleu */
   a:hover{
-    text-shadow:0 0 12px rgba(0,180,255,.8);
+    text-shadow:0 0 12px rgba(0,85,255,.8);
   }
   @media (prefers-reduced-motion:reduce){
     #artistes .kicker,#album .kicker,#contact .kicker{animation:none;}
@@ -1162,21 +1162,21 @@
   /* ANCIENS cercles supprimés - remplacés par halos pulsants (voir plus haut) */
   footer .logo-pied img{
     height:88px;width:auto;
-    filter:drop-shadow(0 0 20px rgba(0,180,255,.7)) drop-shadow(0 0 50px rgba(255,10,22,.4));
+    filter:drop-shadow(0 0 20px rgba(0,85,255,.7)) drop-shadow(0 0 50px rgba(255,10,22,.4));
     animation:footer-logo-float 5s ease-in-out infinite;
     position:relative;z-index:1;
   }
   footer .q{
     animation:footer-q-glow-bleu 3s ease-in-out infinite;
-    color:#00b4ff !important;
+    color:#0055ff !important;
   }
   @keyframes footer-q-glow-bleu{
-    0%,100%{text-shadow:0 0 12px rgba(0,180,255,.6);}
-    50%{text-shadow:0 0 28px rgba(0,180,255,1),0 0 48px rgba(0,180,255,.4);}
+    0%,100%{text-shadow:0 0 12px rgba(0,85,255,.6);}
+    50%{text-shadow:0 0 28px rgba(0,85,255,1),0 0 48px rgba(0,85,255,.4);}
   }
   /* Copyright avec glow bleu subtil */
   footer .copyright{
-    text-shadow:0 0 8px rgba(0,180,255,.2);
+    text-shadow:0 0 8px rgba(0,85,255,.2);
   }
 
   /* ========== AVANT TON TATTOO — la touche pro (inspirations originkit.dev : Glass Icon, Spider Button, Plush Tile) ========== */
@@ -1440,7 +1440,7 @@
   /* Bouton secret Cynthia : ne pas compter ses visites */
   .cynthia-secret{margin-top:20px;opacity:.9;text-align:center;}
   .cynthia-secret a{color:#bbb;text-decoration:none;font-size:1rem;display:inline-block;padding:8px 16px;border:1px solid rgba(255,255,255,.2);border-radius:20px;background:rgba(255,255,255,.05);}
-  .cynthia-secret a:hover{opacity:1;border-color:rgba(0,180,255,.5);box-shadow:0 0 16px rgba(0,180,255,.3);}
+  .cynthia-secret a:hover{opacity:1;border-color:rgba(0,85,255,.5);box-shadow:0 0 16px rgba(0,85,255,.3);}
   @media (prefers-reduced-motion:reduce){.logo-wow img{animation:none;}}
   .photo-artiste{position:relative;overflow:hidden;}
   .photo-glare{
@@ -1964,8 +1964,8 @@ function copierLien(){
   try{
     if(localStorage.getItem('gc_ignore') === '1'){
       btn.textContent = '✅ Tes visites ne sont plus comptées!';
-      btn.style.borderColor = 'rgba(0,180,255,.6)';
-      btn.style.color = '#00b4ff';
+      btn.style.borderColor = 'rgba(0,85,255,.6)';
+      btn.style.color = '#0055ff';
       btn.addEventListener('click', function(e){ e.preventDefault(); });
       return;
     }
@@ -1975,8 +1975,8 @@ function copierLien(){
     try{ localStorage.setItem('gc_ignore', '1'); }catch(err){}
     btn.textContent = '✅ Tes visites ne sont plus comptées!';
     btn.title = 'Exclusion activée';
-    btn.style.borderColor = 'rgba(0,180,255,.6)';
-    btn.style.color = '#00b4ff';
+    btn.style.borderColor = 'rgba(0,85,255,.6)';
+    btn.style.color = '#0055ff';
   });
 })();
 
