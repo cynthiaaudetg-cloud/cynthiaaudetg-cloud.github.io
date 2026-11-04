@@ -2418,6 +2418,58 @@ function copierLien(){
   var reset = document.getElementById('resetPeau');
   if(reset) reset.addEventListener('click', function(){ encre = []; traits = []; traitCourant = null; });
 })();
+
+/* ===== SCRAMBLE TEXT (inspiré d'OriginKit) : les titres se décodent comme un hacker ===== */
+(function(){
+  var CHARS = '!<>-_\\/[]{}—=+*^?#________';
+  var titres = document.querySelectorAll('h2.tattoo');
+  if(!titres.length || !('IntersectionObserver' in window)) return;
+
+  function scramble(el){
+    var original = el.getAttribute('data-texte-origine');
+    if(!original) return;
+    var frame = 0;
+    var totalFrames = original.length * 3 + 20;
+    var interval = setInterval(function(){
+      var resultat = '';
+      for(var i = 0; i < original.length; i++){
+        var seuil = i * 3;
+        if(original[i] === ' '){
+          resultat += ' ';
+        } else if(frame > seuil + 12){
+          resultat += original[i];
+        } else if(frame > seuil){
+          resultat += CHARS[Math.floor(Math.random() * CHARS.length)];
+        } else {
+          resultat += CHARS[Math.floor(Math.random() * CHARS.length)];
+        }
+      }
+      el.textContent = resultat;
+      frame++;
+      if(frame >= totalFrames){
+        clearInterval(interval);
+        el.textContent = original;
+      }
+    }, 30);
+  }
+
+  titres.forEach(function(t){
+    if(!t.getAttribute('data-texte-origine')){
+      t.setAttribute('data-texte-origine', t.textContent);
+    }
+  });
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        scramble(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.4 });
+
+  titres.forEach(function(t){ observer.observe(t); });
+})();
 </script>
 
 </body>
