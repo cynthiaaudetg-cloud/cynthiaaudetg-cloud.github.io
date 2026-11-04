@@ -642,7 +642,7 @@
   .divider span{
     display:inline-block;
     font-size:2.2rem;
-    animation:diamant-3d 4s ease-in-out infinite, diamant-pulse 2s ease-in-out infinite, diamant-sparkle 1.5s ease-in-out infinite;
+    animation:diamant-3d 4s ease-in-out infinite, diamant-pulse 2s ease-in-out infinite, diamant-sparkle 1.5s ease-in-out infinite, diamant-arcenciel 6s linear infinite;
     transform-style:preserve-3d;
   }
   @keyframes diamant-3d{
@@ -658,6 +658,33 @@
   @keyframes diamant-sparkle{
     0%,100%{opacity:1;}
     50%{opacity:.85;}
+  }
+  @keyframes diamant-arcenciel{
+    0%{filter:hue-rotate(0deg);}
+    100%{filter:hue-rotate(360deg);}
+  }
+  /* ========== ROUGE + BLEU ÉQUILIBRÉS : règne et qualité ========== */
+  /* Hero avec les deux couleurs */
+  .hero{
+    background:
+      radial-gradient(ellipse at 20% 20%,rgba(255,10,22,.12),transparent 50%),
+      radial-gradient(ellipse at 80% 80%,rgba(0,180,255,.12),transparent 50%) !important;
+  }
+  /* Sections avec double halo rouge/bleu */
+  .carte{
+    box-shadow:0 0 30px rgba(255,10,22,.15),0 0 30px rgba(0,180,255,.15) !important;
+  }
+  /* Étoiles scintillantes dans le hero */
+  .hero::after{
+    content:"✦ ✦ ✦";
+    position:absolute;top:15%;left:0;right:0;text-align:center;
+    color:rgba(255,255,255,.3);font-size:1.5rem;letter-spacing:2rem;
+    animation:etoiles-scintillent 3s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes etoiles-scintillent{
+    0%,100%{opacity:.3;transform:scale(1);}
+    50%{opacity:.8;transform:scale(1.1);}
   }
   /* Étoiles filantes autour du logo du bas */
   .logo-pied{
