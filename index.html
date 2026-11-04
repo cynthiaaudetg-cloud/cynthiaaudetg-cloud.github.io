@@ -404,6 +404,30 @@
   /* --- Mur de peinture qui dégouline (diviseur hero) --- */
   .drip-wrap{position:relative;height:90px;overflow:hidden;background:transparent;margin-top:-2px;}
   #drips{display:block;width:100%;height:90px;}
+  /* Séparateur dégoulinant CSS entre les sections */
+  .section-drip{
+    height:34px;margin:10px 0 0;position:relative;overflow:hidden;
+    background:
+      radial-gradient(circle at 8% 0, #c00a12 0 8px, transparent 9px),
+      radial-gradient(circle at 22% 0, #c00a12 0 12px, transparent 13px),
+      radial-gradient(circle at 38% 0, #8fb4dd 0 7px, transparent 8px),
+      radial-gradient(circle at 55% 0, #c00a12 0 10px, transparent 11px),
+      radial-gradient(circle at 71% 0, #c00a12 0 8px, transparent 9px),
+      radial-gradient(circle at 86% 0, #8fb4dd 0 11px, transparent 12px),
+      radial-gradient(circle at 96% 0, #c00a12 0 7px, transparent 8px),
+      linear-gradient(180deg, #a00812 0 6px, transparent 7px);
+    background-repeat:no-repeat;
+    opacity:.85;
+    filter:drop-shadow(0 2px 6px rgba(255,10,22,.4));
+  }
+  .section-drip::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+    background-size:200% 100%;
+    animation:drip-sheen 4s linear infinite;
+  }
+  @keyframes drip-sheen{to{background-position:-200% 0;}}
+  @media (prefers-reduced-motion:reduce){.section-drip::after{animation:none;}}
 
   /* Bandeau défilant des styles — ambiance wall of flash */
   .marquee{
@@ -691,10 +715,26 @@
     animation:footer-flow 7s linear infinite;
     filter:drop-shadow(0 0 10px rgba(229,9,20,.8));
   }
+  footer .logo-pied{
+    position:relative;display:inline-block;
+    margin-bottom:14px;
+  }
+  footer .logo-pied::before{
+    content:"";position:absolute;inset:-18px;
+    border:2px dashed rgba(255,10,22,.5);border-radius:50%;
+    animation:logo-anneau 12s linear infinite;
+  }
+  footer .logo-pied::after{
+    content:"";position:absolute;inset:-32px;
+    border:1px solid rgba(143,180,221,.25);border-radius:50%;
+    animation:logo-anneau 20s linear infinite reverse;
+  }
+  @keyframes logo-anneau{to{transform:rotate(360deg);}}
   footer .logo-pied img{
-    height:64px;width:auto;margin-bottom:14px;
-    filter:drop-shadow(0 0 14px rgba(255,10,22,.5));
+    height:88px;width:auto;
+    filter:drop-shadow(0 0 20px rgba(255,10,22,.7)) drop-shadow(0 0 50px rgba(255,10,22,.3));
     animation:footer-logo-float 5s ease-in-out infinite;
+    position:relative;z-index:1;
   }
   footer .q{animation:footer-q-glow 3.4s ease-in-out infinite;}
 
@@ -1165,6 +1205,7 @@
 </section>
 
 <div class="divider" aria-hidden="true"><span>💎</span></div>
+<div class="section-drip" aria-hidden="true"></div>
 
 <!-- TATOUE L'ÉCRAN - hook interactif unique -->
 <section id="tatoue" class="reveal">
@@ -1188,6 +1229,7 @@
 </section>
 
 <div class="divider" aria-hidden="true"><span>💎</span></div>
+<div class="section-drip" aria-hidden="true"></div>
 
 <!-- ARTISTES -->
 <section id="artistes" class="reveal">
@@ -1211,6 +1253,7 @@
 </section>
 
 <div class="divider" aria-hidden="true"><span>💎</span></div>
+<div class="section-drip" aria-hidden="true"></div>
 
 <!-- TARIFS -->
 <section id="tarifs" class="reveal">
@@ -1231,6 +1274,7 @@
 </section>
 
 <div class="divider" aria-hidden="true"><span>💎</span></div>
+<div class="section-drip" aria-hidden="true"></div>
 
 <!-- AVANT TON TATTOO — la touche pro -->
 <section id="avant" class="reveal">
@@ -1276,6 +1320,7 @@
 </section>
 
 <div class="divider" aria-hidden="true"><span>💎</span></div>
+<div class="section-drip" aria-hidden="true"></div>
 
 <!-- LIEN ALBUM FACEBOOK -->
 <section id="album" class="reveal">
@@ -1324,6 +1369,7 @@ function copierLien(){
 </script>
 
 <div class="divider" aria-hidden="true"><span>💎</span></div>
+<div class="section-drip" aria-hidden="true"></div>
 
 <!-- FLASHS RÉCENTS -->
 <section id="flashs" class="reveal">
@@ -1435,6 +1481,7 @@ function copierLien(){
 </section>
 
 <div class="divider" aria-hidden="true"><span>💎</span></div>
+<div class="section-drip" aria-hidden="true"></div>
 
 <!-- CONTACT -->
 <section id="contact" class="reveal">
