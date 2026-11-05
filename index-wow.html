@@ -1832,16 +1832,28 @@ function copierLien(){
 <section id="flashs" class="reveal">
   <div class="kicker">Fraîchement dessinés</div>
   <h2 class="tattoo">Flashs disponibles</h2>
-  <div class="compteur-flashs" id="compteurFlashs" aria-label="Nombre de flashs disponibles">⚡ <span class="chiffre" data-cible="7">0</span> flashs disponibles</div>
-  <p class="intro">Mes 7 derniers flashs, avec la vidéo timelapse à côté pour que tu voies comment le design est monté, étape par étape. Prix spécial Portfolio 2027. Premier arrivé, premier servi!</p>
+  <div class="compteur-flashs" id="compteurFlashs" aria-label="Nombre de flashs disponibles">⚡ <span class="chiffre" data-cible="8">0</span> flashs disponibles</div>
+  <p class="intro">Mes 8 derniers flashs, avec la vidéo timelapse à côté pour que tu voies comment le design est monté, étape par étape. Prix spécial Portfolio 2027. Premier arrivé, premier servi!</p>
 
   <div class="flash-toggle-wrap">
     <button type="button" class="btn btn-venom flash-toggle" id="flashToggle" aria-expanded="false" aria-controls="flashListe">
-      <span class="flash-toggle-txt">⚡ Voir les 7 flashs</span>
+      <span class="flash-toggle-txt">⚡ Voir les 8 flashs</span>
     </button>
   </div>
 
   <div class="flash-liste" id="flashListe" hidden>
+
+  <div class="flash-duo">
+    <div class="flash-media"><span class="badge-media">✒️ Design</span><img src="flashs-recents/flash-felin-sphynx.jpg" alt="Flash Sphynx trash polka" loading="lazy" decoding="async"></div>
+    <div class="flash-media"><span class="badge-media">▶ Timelapse</span><video src="flashs-recents/timelapse-felin-sphynx.mp4" muted loop playsinline controls preload="metadata"></video></div>
+    <div class="flash-info">
+      <div class="flash-nom">Sphynx</div>
+      <span class="flash-prix">600 $</span>
+      <span class="flash-mention">Prix spécial Portfolio 2027</span>
+      <p class="flash-desc">Regarde la vidéo pour voir le tracé se construire, ligne par ligne.</p>
+      <a class="btn-flash" href="#contact">⚡ Je veux ce flash!</a>
+    </div>
+  </div>
 
   <div class="flash-duo">
     <div class="flash-media"><span class="badge-media">✒️ Design</span><img src="flashs-recents/flash-scorpion.jpg" alt="Flash scorpion trash polka" loading="lazy" decoding="async"></div>
@@ -2704,7 +2716,7 @@ function copierLien(){
     } else {
       liste.classList.remove('ouvert');
       btn.setAttribute('aria-expanded', 'false');
-      if(txt) txt.textContent = '⚡ Voir les 7 flashs';
+      if(txt) txt.textContent = '⚡ Voir les 8 flashs';
       setTimeout(function(){ liste.hidden = true; }, 650);
     }
   });
