@@ -1949,7 +1949,7 @@ function copierLien(){
     <div class="avis-etoiles-vides" aria-hidden="true">☆☆☆☆☆</div>
     <p><strong>Sois la première personne à laisser ton avis!</strong><br>Ton mot compte vraiment pour nous.</p>
   </div>
-  <form id="formAvis" class="avis-form" action="https://formsubmit.co/cynthia.audet.g@gmail.com" method="POST">
+  <form id="formAvis" class="avis-form" action="https://formsubmit.co/cynthia.audet.g@gmail.com" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="_subject" value="Nouvel avis client, Sokal Tattoo">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
@@ -1966,6 +1966,8 @@ function copierLien(){
     <input type="hidden" id="avisNote" name="note" value="5">
     <label for="avisCommentaire">Ton commentaire</label>
     <textarea id="avisCommentaire" name="commentaire" required maxlength="500" rows="4" placeholder="Comment ça s'est passé, ta séance?"></textarea>
+    <label for="avisPhoto">Photo de ton tattoo (optionnel) 📸</label>
+    <input type="file" id="avisPhoto" name="photo" accept="image/*">
     <button type="submit" class="btn or btn-3d">⭐ Envoyer mon avis</button>
     <p class="avis-note-bas">Ton avis sera vérifié puis publié après validation par Cynthia, pour s'assurer que seuls nos vrais clients laissent un avis.</p>
   </form>
@@ -3176,6 +3178,13 @@ function copierLien(){
   border-color:#0055ff !important;box-shadow:0 0 16px rgba(0,85,255,.4) !important;outline:none;
 }
 #avis .avis-form textarea{resize:vertical;min-height:100px;}
+#avis .avis-form input[type="file"]{
+  width:100%;background:var(--noir3);border:1px solid #2e2e2e;border-radius:14px;
+  padding:12px 14px;color:var(--blanc);font:inherit;cursor:pointer;
+}
+#avis .avis-form input[type="file"]:focus{
+  border-color:#0055ff !important;box-shadow:0 0 16px rgba(0,85,255,.4) !important;outline:none;
+}
 .avis-etoiles{display:flex;gap:6px;}
 .avis-etoiles button{
   background:none;border:none;font-size:2.3rem;line-height:1;cursor:pointer;
