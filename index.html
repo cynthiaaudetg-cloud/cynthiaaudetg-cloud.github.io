@@ -3332,6 +3332,9 @@ function copierLien(){
     if(contient(q, ['age', 'mineur', 'parent'])){
       return { t: "Il faut avoir 18 ans et plus pour se faire tatouer. Entre 16 et 17 ans, c'est possible avec un parent présent qui signe aussi.", h: false };
     }
+    if(contient(q, ['intelligence', 'artificielle', 'chatgpt', 'robot', 'midjourney']) || /\bia\b/.test(q)){
+      return { t: "Oui, et je l'assume! 😊 J'utilise l'IA comme un outil créatif pour explorer des idées et visualiser des concepts pour certains flashs. Mais générer une image, ce n'est pas créer un tattoo! Je retravaille ensuite chaque concept dans Procreate, j'ajuste la composition, les détails, les ombrages et les espaces négatifs, en pensant à la peau, à la lisibilité et au vieillissement. L'outil ne remplace pas l'artiste, il ouvre juste de nouvelles possibilités!", h: false };
+    }
     if(contient(q, ['flash'])){
       return { t: "Les flashs sont affichés plus haut sur la page, avec leur prix. C'est un seul flash par personne, premier arrivé, premier servi! Pour en réserver un, écris à Cynthia avec le nom du flash.", h: false };
     }
