@@ -1937,6 +1937,41 @@ function copierLien(){
 <div class="divider" aria-hidden="true"><span>💎</span></div>
 <div class="section-drip" aria-hidden="true"></div>
 
+<!-- AVIS CLIENTS -->
+<section id="avis" class="reveal">
+  <div class="kicker">Ils ont passé sous l'aiguille</div>
+  <h2 class="tattoo">Ce que nos clients disent</h2>
+  <p class="intro">Tu as déjà été tatoué chez nous? Raconte ta séance et aide les prochains à se lancer!</p>
+  <div class="avis-invitation">
+    <div class="avis-etoiles-vides" aria-hidden="true">☆☆☆☆☆</div>
+    <p><strong>Sois la première personne à laisser ton avis!</strong><br>Ton mot compte vraiment pour nous.</p>
+  </div>
+  <form id="formAvis" class="avis-form" action="https://formsubmit.co/cynthia.audet.g@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Nouvel avis client, Sokal Tattoo">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <label for="avisNom">Ton nom</label>
+    <input type="text" id="avisNom" name="nom" required maxlength="60" placeholder="Ton prénom">
+    <span class="avis-label">Ta note</span>
+    <div class="avis-etoiles" id="avisEtoiles" role="radiogroup" aria-label="Note de 1 à 5 étoiles">
+      <button type="button" data-note="1" aria-label="1 étoile">☆</button>
+      <button type="button" data-note="2" aria-label="2 étoiles">☆</button>
+      <button type="button" data-note="3" aria-label="3 étoiles">☆</button>
+      <button type="button" data-note="4" aria-label="4 étoiles">☆</button>
+      <button type="button" data-note="5" aria-label="5 étoiles">☆</button>
+    </div>
+    <input type="hidden" id="avisNote" name="note" value="5">
+    <label for="avisCommentaire">Ton commentaire</label>
+    <textarea id="avisCommentaire" name="commentaire" required maxlength="500" rows="4" placeholder="Comment ça s'est passé, ta séance?"></textarea>
+    <button type="submit" class="btn or btn-3d">⭐ Envoyer mon avis</button>
+    <p class="avis-note-bas">Ton avis sera vérifié puis publié après validation par Cynthia, pour s'assurer que seuls nos vrais clients laissent un avis.</p>
+  </form>
+  <p id="avisMerci" class="avis-merci" hidden>Merci! Ton avis sera vérifié puis publié après validation par Cynthia 😊</p>
+</section>
+
+<div class="divider" aria-hidden="true"><span>💎</span></div>
+<div class="section-drip" aria-hidden="true"></div>
+
 <!-- CONTACT -->
 <section id="contact" class="reveal">
   <div class="contact-box">
@@ -3082,7 +3117,267 @@ function copierLien(){
   100%{opacity:0;transform:scale(.4,2) translateY(60px);border-radius:30% 30% 50% 50% / 20% 20% 80% 80%;}
 }
 @media (prefers-reduced-motion:reduce){.boule-3d-degouline{display:none;}}
+<!-- CHATBOT FAQ SOKAL -->
+<button type="button" id="chatSokalBtn" aria-label="Ouvrir le chat Sokal" aria-expanded="false">💬</button>
+<div id="chatSokalPanel" hidden role="dialog" aria-label="Chat Sokal, questions fréquentes">
+  <div class="chat-sokal-tete">
+    <div class="chat-sokal-titre">💬 Questions? <span>Je réponds vite!</span></div>
+    <button type="button" id="chatSokalFermer" aria-label="Fermer le chat">✕</button>
+  </div>
+  <div id="chatSokalMessages" class="chat-sokal-messages" aria-live="polite"></div>
+  <div class="chat-sokal-suggestions" id="chatSokalSuggestions">
+    <button type="button" data-q="tarifs">Tarifs</button>
+    <button type="button" data-q="soins">Soins après tattoo</button>
+    <button type="button" data-q="réserver">Réserver</button>
+    <button type="button" data-q="où êtes-vous">Où êtes-vous?</button>
+  </div>
+  <form id="chatSokalForm" class="chat-sokal-form">
+    <input type="text" id="chatSokalInput" placeholder="Écris ta question..." autocomplete="off" aria-label="Ta question">
+    <button type="submit" aria-label="Envoyer">➤</button>
+  </form>
+</div>
+
+<style>
+/* ========== AVIS CLIENTS ========== */
+#avis .avis-invitation{
+  max-width:560px;margin:0 auto 26px;padding:26px 22px;text-align:center;
+  background:linear-gradient(180deg,rgba(0,85,255,.08),transparent 60%),var(--noir2);
+  border:1px solid rgba(0,85,255,.35);border-radius:20px;
+  box-shadow:0 0 40px rgba(0,85,255,.25),0 12px 40px rgba(0,0,0,.5);
+}
+#avis .avis-invitation p{margin:0;color:var(--gris);}
+#avis .avis-invitation strong{color:var(--blanc);font-size:1.15rem;}
+.avis-etoiles-vides{font-size:2.4rem;letter-spacing:.25em;color:#ffcc00;text-shadow:0 0 18px rgba(255,204,0,.55);margin-bottom:10px;}
+#avis .avis-form{max-width:560px;margin:0 auto;text-align:left;}
+#avis .avis-form label,#avis .avis-label{display:block;font-weight:700;margin:18px 0 8px;color:var(--blanc);}
+#avis .avis-form input[type="text"],#avis .avis-form textarea{
+  width:100%;background:var(--noir3);border:1px solid #2e2e2e;border-radius:14px;
+  padding:14px 16px;color:var(--blanc);font:inherit;
+  transition:box-shadow .25s ease,border-color .25s ease;
+}
+#avis .avis-form input[type="text"]:focus,#avis .avis-form textarea:focus{
+  border-color:#0055ff !important;box-shadow:0 0 16px rgba(0,85,255,.4) !important;outline:none;
+}
+#avis .avis-form textarea{resize:vertical;min-height:100px;}
+.avis-etoiles{display:flex;gap:6px;}
+.avis-etoiles button{
+  background:none;border:none;font-size:2.3rem;line-height:1;cursor:pointer;
+  color:#4a4a4a;padding:4px;transition:transform .15s ease,color .15s ease;
+}
+.avis-etoiles button.actif{color:#ffcc00;text-shadow:0 0 14px rgba(255,204,0,.7);}
+.avis-etoiles button:hover{transform:scale(1.25);}
+#avis .avis-form button[type="submit"]{margin-top:22px;}
+#avis .avis-form button[type="submit"]:disabled{opacity:.6;cursor:wait;}
+.avis-note-bas{font-size:.9rem;color:var(--gris-fonce);margin-top:14px;}
+.avis-merci{
+  max-width:560px;margin:26px auto 0;padding:20px;text-align:center;font-weight:700;
+  background:rgba(0,85,255,.12);border:1px solid rgba(0,85,255,.5);border-radius:16px;color:var(--blanc);
+}
+/* ========== CHATBOT FAQ SOKAL ========== */
+#chatSokalBtn{
+  position:fixed;right:20px;bottom:24px;z-index:10001;width:62px;height:62px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.35);cursor:pointer;font-size:1.7rem;color:#fff;
+  background:linear-gradient(135deg,#3385ff,#0055ff 55%,#0033aa);
+  box-shadow:0 0 24px rgba(0,85,255,.8),0 8px 24px rgba(0,0,0,.5);
+  animation:chat-sokal-pulse 2.6s ease-in-out infinite;
+}
+@keyframes chat-sokal-pulse{
+  0%,100%{box-shadow:0 0 18px rgba(0,85,255,.6),0 8px 24px rgba(0,0,0,.5);}
+  50%{box-shadow:0 0 36px rgba(0,85,255,.95),0 8px 24px rgba(0,0,0,.5);}
+}
+#chatSokalPanel{
+  position:fixed;right:20px;bottom:100px;z-index:10002;width:350px;max-width:calc(100vw - 32px);
+  height:460px;max-height:calc(100vh - 140px);display:flex;flex-direction:column;
+  background:var(--noir2);border:1px solid rgba(0,85,255,.5);border-radius:18px;
+  box-shadow:0 0 40px rgba(0,85,255,.35),0 20px 50px rgba(0,0,0,.6);overflow:hidden;
+}
+#chatSokalPanel[hidden]{display:none;}
+.chat-sokal-tete{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:12px 14px;background:linear-gradient(135deg,#0055ff,#0033aa);color:#fff;font-weight:800;
+}
+.chat-sokal-tete span{font-weight:400;font-size:.9rem;opacity:.9;}
+#chatSokalFermer{
+  background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;
+}
+.chat-sokal-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;}
+.chat-msg{max-width:88%;padding:10px 13px;border-radius:14px;line-height:1.45;font-size:.95rem;overflow-wrap:break-word;}
+.chat-msg.bot{align-self:flex-start;background:#16233d;border:1px solid rgba(0,85,255,.35);color:var(--blanc);}
+.chat-msg.user{align-self:flex-end;background:linear-gradient(135deg,#3385ff,#0055ff);color:#fff;}
+.chat-msg a{color:#9cc2f0;text-decoration:underline;}
+.chat-sokal-suggestions{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px;}
+.chat-sokal-suggestions button{
+  border:1px solid rgba(0,85,255,.5);background:rgba(0,85,255,.12);color:#c6dcf5;
+  border-radius:50px;padding:7px 12px;font-size:.85rem;cursor:pointer;
+}
+.chat-sokal-suggestions button:hover{background:rgba(0,85,255,.3);}
+.chat-sokal-form{display:flex;gap:8px;padding:10px 12px;border-top:1px solid rgba(255,255,255,.08);}
+.chat-sokal-form input{
+  flex:1;min-width:0;background:var(--noir3);border:1px solid #2e2e2e;border-radius:50px;
+  padding:10px 14px;color:var(--blanc);font:inherit;
+}
+.chat-sokal-form input:focus{border-color:#0055ff;box-shadow:0 0 12px rgba(0,85,255,.4);outline:none;}
+.chat-sokal-form button[type="submit"]{
+  flex:none;width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;color:#fff;font-size:1.1rem;
+  background:linear-gradient(135deg,#3385ff,#0055ff);box-shadow:0 0 14px rgba(0,85,255,.6);
+}
+@media(max-width:700px){
+  #chatSokalBtn{bottom:92px;right:14px;}
+  #chatSokalPanel{right:14px;bottom:168px;}
+}
+@media (prefers-reduced-motion:reduce){#chatSokalBtn{animation:none;}}
 </style>
+
+<script>
+/* ========== AVIS CLIENTS : étoiles cliquables + envoi FormSubmit (ajax) ========== */
+(function(){
+  var groupe = document.getElementById('avisEtoiles');
+  var champ = document.getElementById('avisNote');
+  if(groupe && champ){
+    var boutons = groupe.querySelectorAll('button');
+    function peindre(n){
+      boutons.forEach(function(b){
+        var v = parseInt(b.getAttribute('data-note'), 10);
+        b.classList.toggle('actif', v <= n);
+        b.textContent = v <= n ? '★' : '☆';
+        b.setAttribute('aria-checked', v === n ? 'true' : 'false');
+      });
+    }
+    boutons.forEach(function(b){
+      b.addEventListener('click', function(){
+        var n = parseInt(b.getAttribute('data-note'), 10);
+        champ.value = n;
+        peindre(n);
+      });
+    });
+    peindre(5);
+  }
+  var form = document.getElementById('formAvis');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var merci = document.getElementById('avisMerci');
+      var btn = form.querySelector('button[type="submit"]');
+      if(btn) btn.disabled = true;
+      fetch('https://formsubmit.co/ajax/cynthia.audet.g@gmail.com', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r){
+        if(!r.ok) throw new Error('FormSubmit non OK');
+        form.hidden = true;
+        if(merci){
+          merci.hidden = false;
+          merci.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }).catch(function(){
+        /* Si l'envoi ajax échoue, on laisse le formulaire partir normalement */
+        form.submit();
+      });
+    });
+  }
+})();
+
+/* ========== CHATBOT FAQ SOKAL : 100 % local, règles par mots-clés ========== */
+(function(){
+  var btn = document.getElementById('chatSokalBtn');
+  var panneau = document.getElementById('chatSokalPanel');
+  var fermer = document.getElementById('chatSokalFermer');
+  var messages = document.getElementById('chatSokalMessages');
+  var form = document.getElementById('chatSokalForm');
+  var input = document.getElementById('chatSokalInput');
+  var suggestions = document.getElementById('chatSokalSuggestions');
+  if(!btn || !panneau || !messages) return;
+  var LIEN_CYNTHIA = 'https://www.facebook.com/share/17bipwd3sq/';
+  var LIEN_CONSENTEMENT = 'https://cynthiaaudetg-cloud.github.io/Stencilprintproavance/consentement.html';
+  var accueilli = false;
+
+  function normaliser(t){
+    return (t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function contient(t, mots){
+    return mots.some(function(m){ return t.indexOf(m) !== -1; });
+  }
+  function ajouterMsg(texte, qui, html){
+    var bulle = document.createElement('div');
+    bulle.className = 'chat-msg ' + qui;
+    if(html){ bulle.innerHTML = texte; } else { bulle.textContent = texte; }
+    messages.appendChild(bulle);
+    messages.scrollTop = messages.scrollHeight;
+  }
+  function reponsePour(question){
+    var q = normaliser(question);
+    if(contient(q, ['bonjour', 'salut', 'allo', 'coucou', 'hello', 'hey'])){
+      return { t: "Allô! 😊 Pose-moi ta question, je connais les tarifs, les soins, les réservations et pas mal d'autres choses!", h: false };
+    }
+    if(contient(q, ['merci'])){
+      return { t: "Avec plaisir! 😊 Autre chose?", h: false };
+    }
+    if(contient(q, ['prix', 'tarif', 'combien', 'coute', 'cout', '125', '150'])){
+      return { t: "Cynthia charge 125 $ par heure et Dave 150 $ par heure, avec un minimum d'une heure. Le dépôt (50 $ pour Cynthia, 100 $ pour Dave) est déduit du total en fin de séance si tu veux. Il n'est jamais remboursé.", h: false };
+    }
+    if(contient(q, ['depot', 'reserver', 'reservation', 'dispo', 'date', 'rdv', 'rendez', 'annuler', 'annulation', 'janvier', 'fevrier', 'samedi'])){
+      return { t: "Pour réserver ta date, ça prend un dépôt de 50 $ (Cynthia) ou 100 $ (Dave). En 2027, on tatoue les samedis matin seulement, et les dates partent vite! Pour réserver, écris à Cynthia, elle te confirme la date. Si tu dois annuler, dis-le au moins 3 jours d'avance, sinon le dépôt est gardé.", h: false };
+    }
+    if(contient(q, ['soin', 'saniderm', 'guerison', 'guerir', 'pellicule', 'creme', 'vitamine', 'douche', 'soleil', 'piscine', 'laver'])){
+      return { t: "Après ta séance : garde le Saniderm 3 à 5 jours, enlève la pellicule 2 à 3 heures après, nettoie 3 fois par jour avec un savon doux sans parfum, puis une mince couche de vitamine E en gel sans parfum. Pas de crème anesthésiante sauf si on en a parlé avant!", h: false };
+    }
+    if(contient(q, ['consentement', 'formulaire', 'signer', 'signature'])){
+      return { t: "Oui, le formulaire de consentement se signe avant chaque tattoo, même si tu en as déjà signé un avant. Tu peux le remplir ici : <a href=\"" + LIEN_CONSENTEMENT + "\" target=\"_blank\" rel=\"noopener\">Formulaire de consentement</a>", h: true };
+    }
+    if(contient(q, ['ou etes', 'etes ou', 'ou est', 'adresse', 'lieu', 'lorette', 'quebec', 'stationnement', 'trouve', 'situes', 'salon'])){
+      return { t: "On est à L'Ancienne-Lorette, à Québec! L'adresse exacte est sur la page, dans la section contact.", h: false };
+    }
+    if(contient(q, ['age', 'mineur', 'parent'])){
+      return { t: "Il faut avoir 18 ans et plus pour se faire tatouer. Entre 16 et 17 ans, c'est possible avec un parent présent qui signe aussi.", h: false };
+    }
+    if(contient(q, ['flash'])){
+      return { t: "Les flashs sont affichés plus haut sur la page, avec leur prix. C'est un seul flash par personne, premier arrivé, premier servi! Pour en réserver un, écris à Cynthia avec le nom du flash.", h: false };
+    }
+    if(contient(q, ['jeu', 'jouer', 'tatouer', 'ecran', 'aiguille'])){
+      return { t: "Le jeu « Tatoue l'écran! » est tout en haut de la page! Choisis ton aiguille et tatoue l'écran, l'encre reste en place. Amuse-toi!", h: false };
+    }
+    if(contient(q, ['horaire', 'heure', 'ouvert', 'ferme', 'quand'])){
+      return { t: "En 2027, on tatoue les samedis matin seulement. Les clients arrivent à 9h. Écris à Cynthia pour réserver ta date!", h: false };
+    }
+    return { t: "Bonne question! Pour ça, le mieux c'est d'écrire directement à Cynthia, elle te répond vite 😊 <a href=\"" + LIEN_CYNTHIA + "\" target=\"_blank\" rel=\"noopener\">⚡ Écrire à Cynthia</a>", h: true };
+  }
+  function repondre(question){
+    var r = reponsePour(question);
+    ajouterMsg(r.t, 'bot', r.h);
+  }
+  function basculer(ouvrir){
+    var ouvert = ouvrir !== undefined ? ouvrir : panneau.hidden;
+    panneau.hidden = !ouvert;
+    btn.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+    if(ouvert && !accueilli){
+      accueilli = true;
+      ajouterMsg("Allô! 😊 Moi c'est le petit assistant Sokal! Pose-moi ta question sur les tarifs, les soins ou la réservation, je réponds vite!", 'bot', false);
+    }
+    if(ouvert && input) input.focus();
+  }
+  btn.addEventListener('click', function(){ basculer(); });
+  if(fermer) fermer.addEventListener('click', function(){ basculer(false); });
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var texte = input.value.trim();
+      if(!texte) return;
+      ajouterMsg(texte, 'user', false);
+      input.value = '';
+      repondre(texte);
+    });
+  }
+  if(suggestions){
+    suggestions.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-q]');
+      if(!b) return;
+      ajouterMsg(b.textContent, 'user', false);
+      repondre(b.getAttribute('data-q'));
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
