@@ -2064,8 +2064,8 @@ function copierLien(){
     <input type="hidden" id="avisNote" name="note" value="5">
     <label for="avisCommentaire">Ton commentaire</label>
     <textarea id="avisCommentaire" name="commentaire" required maxlength="500" rows="4" placeholder="Comment ça s'est passé, ta séance?"></textarea>
-    <label for="avisPhoto">Photo de ton tattoo (optionnel) 📸 — envoie-la nous par Messenger</label>
-    <input type="file" id="avisPhoto" accept="image/*">
+    <label for="avisPhoto">Photo de ton tattoo (optionnel) 📸</label>
+    <input type="file" id="avisPhoto" name="photo" accept="image/*">
     <button type="submit" class="btn or btn-3d">⭐ Envoyer mon avis</button>
     <p class="avis-note-bas">Ton avis sera vérifié puis publié après validation par Cynthia, pour s'assurer que seuls nos vrais clients laissent un avis.</p>
   </form>
@@ -3405,7 +3405,7 @@ function copierLien(){
       donnees.set('from_name', nomClient);
       if(photoJointe){
         var texteAvis = document.getElementById('avisCommentaire').value || '';
-        donnees.set('commentaire', texteAvis + '\n\n[Photo jointe par le client : ' + photoInput.files[0].name + ' — à envoyer par Messenger]');
+        donnees.set('commentaire', texteAvis + '\n\n[Photo jointe par le client : ' + photoInput.files[0].name + ']');
       }
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -3415,9 +3415,6 @@ function copierLien(){
         if(!res || !res.success) throw new Error('Web3Forms non OK');
         form.hidden = true;
         if(merci){
-          if(photoJointe){
-            merci.textContent = 'Merci! Ton avis sera vérifié puis publié après validation par Cynthia 😊 Pour ta photo, envoie-la nous par Messenger!';
-          }
           merci.hidden = false;
           merci.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
