@@ -2053,8 +2053,7 @@ function copierLien(){
     <input type="hidden" id="avisNote" name="note" value="5">
     <label for="avisCommentaire">Ton commentaire</label>
     <textarea id="avisCommentaire" name="commentaire" required maxlength="500" rows="4" placeholder="Comment ça s'est passé, ta séance?"></textarea>
-    <label for="avisPhoto">Photo de ton tattoo (optionnel) 📸</label>
-    <input type="file" id="avisPhoto" name="photo" accept="image/*">
+    <p class="avis-photo-note">📸 Tu veux ajouter une photo de ton tattoo? Envoie-la à Cynthia par Messenger, elle l'ajoutera à ton avis! <a href="https://www.facebook.com/share/17bipwd3sq/" target="_blank" rel="noopener">Écrire à Cynthia</a></p>
     <button type="submit" class="btn or btn-3d">⭐ Envoyer mon avis</button>
     <p class="avis-note-bas">Ton avis sera vérifié puis publié après validation par Cynthia, pour s'assurer que seuls nos vrais clients laissent un avis.</p>
   </form>
@@ -3385,17 +3384,11 @@ function copierLien(){
       var merci = document.getElementById('avisMerci');
       var erreur = document.getElementById('avisErreur');
       var btn = form.querySelector('button[type="submit"]');
-      var photoInput = document.getElementById('avisPhoto');
-      var photoJointe = photoInput && photoInput.files && photoInput.files.length > 0;
       if(erreur) erreur.hidden = true;
       if(btn) btn.disabled = true;
       var donnees = new FormData(form);
       var nomClient = document.getElementById('avisNom').value || 'Client Sokal';
       donnees.set('from_name', nomClient);
-      if(photoJointe){
-        var texteAvis = document.getElementById('avisCommentaire').value || '';
-        donnees.set('commentaire', texteAvis + '\n\n[Photo jointe par le client : ' + photoInput.files[0].name + ']');
-      }
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: donnees,
