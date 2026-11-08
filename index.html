@@ -350,6 +350,54 @@
   }
   .flash-note strong{color:var(--blanc);}
 
+  /* ---------- SOKALS : archives du matin & du soir ---------- */
+  .sokal-toggle-wrap{display:flex;justify-content:center;margin:18px 0 6px;}
+  /* Bouton WOW : dégradé animé rouge #ff0a16 / bleu électrique #00b4ff, néon 3D */
+  .btn-sokal{
+    background:linear-gradient(120deg,#ff0a16,#0055ff,#00b4ff,#ff0a16) !important;
+    background-size:300% 300% !important;
+    animation:sokal-degrade 6s ease infinite;
+    border:1px solid rgba(255,255,255,.25) !important;
+    box-shadow:0 10px 34px rgba(255,10,22,.5),0 0 34px rgba(0,180,255,.35),inset 0 1px 0 rgba(255,255,255,.35) !important;
+    font-size:1.15rem !important;padding:18px 44px !important;
+  }
+  .btn-sokal:hover{transform:translateY(-3px) scale(1.04);}
+  @keyframes sokal-degrade{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+  .sokal-liste{overflow:hidden;transition:max-height .6s ease,opacity .5s ease;max-height:0;opacity:0;}
+  .sokal-liste.ouvert{max-height:30000px;opacity:1;}
+  .sokal-liste[hidden]{display:none;}
+  .sokal-liste.ouvert[hidden]{display:block;}
+  .sokal-grille{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));}
+  .sokal-carte{
+    background:linear-gradient(180deg,rgba(255,10,22,.05),transparent 45%),var(--noir2);
+    border:1px solid #2e2e2e;border-radius:18px;padding:14px;position:relative;
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  .sokal-carte:hover{
+    transform:translateY(-5px);border-color:rgba(0,180,255,.55);
+    box-shadow:0 16px 44px rgba(0,0,0,.55),0 0 26px rgba(255,10,22,.25),0 0 26px rgba(0,180,255,.2);
+  }
+  .sokal-media{position:relative;border-radius:12px;overflow:hidden;border:1px solid #3a3a3a;background:#000;}
+  .sokal-media img{width:100%;height:auto;display:block;transition:transform .5s ease;}
+  .sokal-carte:hover .sokal-media img{transform:scale(1.05);}
+  .sokal-badge{
+    position:absolute;top:10px;left:10px;z-index:2;
+    background:rgba(0,0,0,.68);color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.1em;
+    padding:4px 12px;border-radius:50px;text-transform:uppercase;
+  }
+  .sokal-badge-matin{border:1px solid rgba(255,10,22,.65);}
+  .sokal-badge-soir{border:1px solid rgba(0,180,255,.65);}
+  .sokal-info{text-align:center;padding:12px 4px 4px;}
+  .sokal-titre{font-family:'Pirata One',serif;font-size:1.5rem;color:var(--blanc);line-height:1.2;}
+  .sokal-date{color:var(--gris);font-size:.88rem;margin-top:4px;}
+  .sokal-lien{display:inline-block;margin-top:10px;font-weight:800;font-size:.9rem;color:var(--cta-clair);text-decoration:none;border-bottom:1px solid rgba(143,180,221,.5);}
+  .sokal-lien:hover{color:#fff;}
+  @media (prefers-reduced-motion:reduce){.btn-sokal{animation:none;}}
+
   /* ---------- TARIFS ---------- */
   .prix-liste{list-style:none;margin-top:6px;}
   .prix-liste li{
@@ -2064,6 +2112,214 @@ function copierLien(){
 <div class="divider" aria-hidden="true"><span>💎</span></div>
 <div class="section-drip" aria-hidden="true"></div>
 
+<!-- ARCHIVES SOKAL DU MATIN & DU SOIR -->
+<section id="sokals" class="reveal">
+  <div class="kicker">☕ Le matin · 🌙 Le soir</div>
+  <h2 class="tattoo">Les Sokal du matin &amp; du soir</h2>
+  <div class="compteur-flashs" aria-label="Nombre d'affiches Sokal publiées">✨ <span class="chiffre" id="sokalCompteurNombre">22</span> affiches</div>
+  <p class="intro">Revois toutes les affiches! Chaque matin et chaque soir, une petite dose d'humour tattoo. Voici toutes celles déjà publiées, du 1er octobre à aujourd'hui.</p>
+
+  <div class="sokal-toggle-wrap">
+    <button type="button" class="btn btn-sokal sokal-toggle" id="sokalToggle" aria-expanded="false" aria-controls="sokalListe">
+      <span class="sokal-toggle-txt">✨ Voir les 22 Sokal</span>
+    </button>
+  </div>
+
+  <div class="sokal-liste" id="sokalListe" hidden>
+
+  <div class="sokal-grille" id="sokalGrille">
+
+    <article class="sokal-carte" data-type="soir">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-soir">🌙 Sokal du soir</span><img src="sokals/affiche-enfants-garderie-2026-11-03.jpg" alt="Enfants / garderie : je tatoue des projets, pas une gang d'enfants" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Enfants / garderie</h3>
+        <p class="sokal-date">Publié le 7 novembre 2026</p>
+        <a class="sokal-lien" href="https://www.facebook.com/cynthia.audetgrondin/posts/pfbid024eKA2B21GwMtYH848TgWJ7XtuUJEXhUCNyA7BNdeHAbPnR9CtF9Aa2NravAaUaQHl" target="_blank" rel="noopener">Voir sur Facebook ↗</a>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-portrait-couple-coverup-v6-2026-11-07.jpg" alt="Portrait de couple / cover-up" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Portrait de couple / cover-up</h3>
+        <p class="sokal-date">Publié le 7 novembre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="soir">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-soir">🌙 Sokal du soir</span><img src="sokals/affiche-rocher-randonnee-2026-11-06.jpg" alt="Rocher trouvé en randonnée" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Rocher trouvé en randonnée</h3>
+        <p class="sokal-date">Publié le 6 novembre 2026</p>
+        <a class="sokal-lien" href="https://www.facebook.com/cynthia.audetgrondin/posts/pfbid0v5dFbCquDDhLjwBjy8Hu8G2bTxJG5rFKWFiey9PS18cS6EMCX99sBmpVWpRfXekjl" target="_blank" rel="noopener">Voir sur Facebook ↗</a>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-grenouille-doigt-2026-10-26.jpg" alt="Grenouille sur le doigt" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Grenouille sur le doigt</h3>
+        <p class="sokal-date">Publié le 6 novembre 2026</p>
+        <a class="sokal-lien" href="https://www.facebook.com/cynthia.audetgrondin/posts/pfbid0Tn51C8x8pLsGJpwpM9avBSCRNbCJf7Sc8t8PipULXmfgYf6AvthscHKELF7Rhc7sl" target="_blank" rel="noopener">Voir sur Facebook ↗</a>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-agence-rencontres-2026-11-03.jpg" alt="Agence de rencontres" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Agence de rencontres</h3>
+        <p class="sokal-date">Publié le 4 novembre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-vitiligo-carte-monde-2026-10-25.jpg" alt="Vitiligo : la carte du monde" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Vitiligo — la carte du monde</h3>
+        <p class="sokal-date">Publié le 3 novembre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-drap-tattoo-frais-2026-10-25.jpg" alt="Drap blanc : tattoo frais imprimé sur les draps" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Drap blanc — tattoo frais imprimé sur les draps</h3>
+        <p class="sokal-date">Publié le 1er novembre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-client-pense-FINAL-corrigee-2026-10-30.jpg" alt="LE CLIENT PENSE !" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">LE CLIENT PENSE !</h3>
+        <p class="sokal-date">Publié le 30 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="soir">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-soir">🌙 Sokal du soir</span><img src="sokals/affiche-phrases-clients-tattoo-v18-2026-10-29.jpg" alt="Ce que le client DIT / ce qu'il PENSE" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Ce que le client DIT / ce qu'il PENSE</h3>
+        <p class="sokal-date">Publié le 29 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-pikachu-ailleurs-2026-10-27.jpg" alt="Pikachu raté ailleurs" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Pikachu raté ailleurs</h3>
+        <p class="sokal-date">Publié le 29 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-spiderman-geste-2026-10-24.jpg" alt="Spider-Man : vérifier le stencil avant de dire oui" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Spider-Man — vérifier le stencil avant de dire oui</h3>
+        <p class="sokal-date">Publié le 27 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-papillon-plus-simple-2026-10-24.jpg" alt="Papillon plus simple" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Papillon « plus simple »</h3>
+        <p class="sokal-date">Publié le 26 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-evolution-tatoueuse-abdos-3d-2026-10-24.jpg" alt="Évolution d'une tatoueuse : le 6-pack 3D" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Évolution d'une tatoueuse : le 6-pack 3D</h3>
+        <p class="sokal-date">Publié le 24 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-evolution-tatoueuse-v3-2026-10-22.jpg" alt="Évolution d'une tatoueuse v3" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Évolution d'une tatoueuse v3</h3>
+        <p class="sokal-date">Publié le 23 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-nom-transforme-2026-10-21.jpg" alt="Le nom transformé : Tina devient Argentina" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Le nom transformé — Tina devient Argentina</h3>
+        <p class="sokal-date">Publié le 22 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-client-vieillit-bien-2026-10-21.jpg" alt="Client qui veut un tattoo qui vieillit bien" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Client qui veut un tattoo qui vieillit bien</h3>
+        <p class="sokal-date">Publié le 21 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-pingouin-peins-2026-10-20.jpg" alt="Pingouin PEINS" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Pingouin PEINS</h3>
+        <p class="sokal-date">Publié le 21 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-evolution-dos-accordeon-2026-10-19.jpg" alt="Évolution d'une tatoueuse : dos en accordéon" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Évolution d'une tatoueuse : dos en accordéon</h3>
+        <p class="sokal-date">Publié le 19 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-2026-10-19.png" alt="Tour Eiffel" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Tour Eiffel</h3>
+        <p class="sokal-date">Publié le 19 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-2026-10-06-v2.png" alt="Crème anesthésiante" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Crème anesthésiante</h3>
+        <p class="sokal-date">Publié le 6 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-2026-10-05-v3.jpg" alt="Café / lignes droites" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Café / lignes droites</h3>
+        <p class="sokal-date">Publié le 5 octobre 2026</p>
+      </div>
+    </article>
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-2026-10-01-v6-final.png" alt="Guérison du tattoo" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Guérison du tattoo</h3>
+        <p class="sokal-date">Publié le 1er octobre 2026</p>
+      </div>
+    </article>
+
+  </div><!-- /sokal-grille -->
+
+  </div><!-- /sokal-liste -->
+
+  <div class="cta-row">
+    <a class="btn ghost" href="https://www.facebook.com/cynthia.audetgrondin" target="_blank" rel="noopener">Voir tous les Sokal sur Facebook</a>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>💎</span></div>
+<div class="section-drip" aria-hidden="true"></div>
+
 <!-- CONTACT -->
 <section id="contact" class="reveal">
   <div class="contact-box">
@@ -2743,6 +2999,32 @@ function copierLien(){
       setTimeout(function(){ liste.hidden = true; }, 650);
     }
   });
+})();
+
+/* Archives Sokal du matin & du soir : un seul bouton dépliant, toutes les affiches réunies */
+(function(){
+  var btn = document.getElementById('sokalToggle');
+  var liste = document.getElementById('sokalListe');
+  if(btn && liste){
+    var txt = btn.querySelector('.sokal-toggle-txt');
+    btn.addEventListener('click', function(){
+      var estOuvert = liste.classList.contains('ouvert');
+      if(!estOuvert){
+        liste.hidden = false;
+        void liste.offsetHeight;
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){ liste.classList.add('ouvert'); });
+        });
+        btn.setAttribute('aria-expanded', 'true');
+        if(txt) txt.textContent = '🔼 Réduire les Sokal';
+      } else {
+        liste.classList.remove('ouvert');
+        btn.setAttribute('aria-expanded', 'false');
+        if(txt) txt.textContent = '✨ Voir les 22 Sokal';
+        setTimeout(function(){ liste.hidden = true; }, 650);
+      }
+    });
+  }
 })();
 
 /* Photos artistes 3D : tilt + reflet lumineux qui suivent la souris */
