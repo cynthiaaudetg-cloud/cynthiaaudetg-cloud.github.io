@@ -2145,13 +2145,21 @@ function copierLien(){
 
   <div class="sokal-toggle-wrap">
     <button type="button" class="btn btn-sokal sokal-toggle" id="sokalToggle" aria-expanded="false" aria-controls="sokalListe">
-      <span class="sokal-toggle-txt">✨ Voir les 26 Sokal</span>
+      <span class="sokal-toggle-txt">✨ Voir les 27 Sokal</span>
     </button>
   </div>
 
   <div class="sokal-liste" id="sokalListe" hidden>
 
   <div class="sokal-grille" id="sokalGrille">
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-juste-le-mot-tattoo-2026-11-10.jpg" alt="Juste le mot TATTOO" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Juste le mot TATTOO</h3>
+        <p class="sokal-date">Publié le 10 novembre 2026</p>
+      </div>
+    </article>
 
     <article class="sokal-carte" data-type="soir">
       <div class="sokal-media"><span class="sokal-badge sokal-badge-soir">🌙 Sokal du soir</span><img src="sokals/affiche-tribunal-tatouages-2026-11-03.jpg" alt="Le Tribunal des tatouages" loading="lazy" decoding="async"></div>
@@ -3076,7 +3084,7 @@ function copierLien(){
       } else {
         liste.classList.remove('ouvert');
         btn.setAttribute('aria-expanded', 'false');
-        if(txt) txt.textContent = '✨ Voir les 26 Sokal';
+        if(txt) txt.textContent = '✨ Voir les 27 Sokal';
         setTimeout(function(){ liste.hidden = true; }, 650);
       }
     });
