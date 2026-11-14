@@ -4036,6 +4036,9 @@ function copierLien(){
     if(contient(q, ['merci'])){
       return { t: "Avec plaisir! 😊 Autre chose?", h: false };
     }
+    if(contient(q, ['symptome', 'gastro', 'malade', 'fievre', 'vomissement', 'vomir', 'diarrhee', 'rhume', 'grippe', 'contagieux', 'contagion', 'maladie', 'tousse', 'toux'])){
+      return { t: "Si tu as des symptômes comme la gastro, la fièvre, des vomissements ou de la diarrhée, ne viens pas à ton rendez-vous. Écris à Cynthia ou Dave sur Messenger au plus vite pour déplacer ta séance. Ton dépôt peut être déplacé une fois sur ta nouvelle date, après deux fois on peut le garder, sauf si c'est une urgence, on est parlables, faut juste pas en abuser. Si c'est quelqu'un autour de toi qui est malade et que toi tu n'as aucun symptôme, écris-nous aussi, on va te dire si tu peux venir. Pour tes questions de santé, appelle Info-Santé au 811, le petit robot ne peut pas te diagnostiquer. <a href=\"" + LIEN_CYNTHIA + "\" target=\"_blank\" rel=\"noopener\">⚡ Écrire à Cynthia</a>", h: true };
+    }
     if(contient(q, ['prix', 'tarif', 'combien', 'coute', 'cout', '125', '150'])){
       return { t: "Cynthia charge 125 $ par heure et Dave 150 $ par heure, avec un minimum d'une heure. Le dépôt (50 $ pour Cynthia, 100 $ pour Dave) est déduit du total en fin de séance si tu veux. Il n'est jamais remboursé.", h: false };
     }
@@ -4078,7 +4081,7 @@ function copierLien(){
     btn.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
     if(ouvert && !accueilli){
       accueilli = true;
-      ajouterMsg("Allô! 😊 Moi c'est le petit assistant Sokal! Pose-moi ta question sur les tarifs, les soins ou la réservation, je réponds vite!", 'bot', false);
+      ajouterMsg("Allô! 😊 Moi c'est le petit assistant Sokal! Pose-moi ta question sur les tarifs, les soins, la réservation ou si tu as des symptômes, je réponds vite!", 'bot', false);
     }
     if(ouvert && input) input.focus();
   }
