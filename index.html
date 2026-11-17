@@ -1046,9 +1046,9 @@
     display:none;transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.8,.25,1);
   }
   .cta-sticky.visible{transform:none;}
-  .cta-sticky .btn{width:100%;text-align:center;padding:14px 20px;font-size:1.02rem;}
+  .cta-sticky .btn{flex:1;min-width:0;text-align:center;padding:14px 6px;font-size:.88rem;white-space:nowrap;}
   @media(max-width:700px){
-    .cta-sticky{display:block;}
+    .cta-sticky{display:flex;gap:10px;}
     body{padding-bottom:76px;}
   }
 
@@ -2721,7 +2721,8 @@ function copierLien(){
 
 <!-- Barre CTA collante (mobile) -->
 <div class="cta-sticky" id="ctaSticky">
-  <a class="btn or btn-3d" href="#contact">⚡ Réserver mon flash</a>
+  <a class="btn or btn-3d" href="#contact">⚡ Réserver</a>
+  <a class="btn attente" href="https://cynthiaaudetg-cloud.github.io/Stencilprintproavance/liste-annulation.html" target="_blank" rel="noopener">📋 Liste d'attente</a>
 </div>
 
 <footer>
