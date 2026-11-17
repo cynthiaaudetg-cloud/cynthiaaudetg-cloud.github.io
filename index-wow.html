@@ -223,6 +223,21 @@
     0%,100%{box-shadow:0 8px 30px rgba(255,47,214,.5),inset 0 1px 0 rgba(255,255,255,.5);}
     50%{box-shadow:0 8px 48px rgba(255,47,214,.9),inset 0 1px 0 rgba(255,255,255,.5);}
   }
+  /* Bouton LISTE D'ATTENTE — vers la liste d'annulation (mauve + jaune) */
+  .btn.attente{
+    background:linear-gradient(135deg,#b06bff,#7b2fff 45%,#ffd21f);
+    color:#fff;border:1px solid rgba(255,255,255,.4);
+    box-shadow:0 8px 30px rgba(176,107,255,.5),inset 0 1px 0 rgba(255,255,255,.5);
+    animation:pulse-attente 2.4s ease-in-out infinite;
+  }
+  .btn.attente:hover{
+    box-shadow:0 12px 44px rgba(176,107,255,.8),inset 0 1px 0 rgba(255,255,255,.5);
+    transform:translateY(-2px) scale(1.04);
+  }
+  @keyframes pulse-attente{
+    0%,100%{box-shadow:0 8px 30px rgba(176,107,255,.5),inset 0 1px 0 rgba(255,255,255,.5);}
+    50%{box-shadow:0 8px 48px rgba(255,210,31,.7),inset 0 1px 0 rgba(255,255,255,.5);}
+  }
 
   /* ---------- SECTIONS ---------- */
   section{max-width:980px;margin:0 auto;padding:56px 20px;position:relative;overflow:hidden;}
@@ -1687,6 +1702,7 @@
       <a class="btn or" href="#contact">⚡ Réserver ton tattoo</a>
       <a class="btn ghost" href="#flashs">Voir les flashs</a>
       <a class="btn concours" href="https://muse.ai/s/roue-de-tirage-du-concours-xxxg6xvojxexdabxd/HtFoPPI6RODp7ReW7wiq6ZI87nRSSWCbDtVwWs_0Cak" target="_blank" rel="noopener">🎄🎁 Jeux concours — Voir tes chances de gagner!</a>
+      <a class="btn attente" href="https://cynthiaaudetg-cloud.github.io/Stencilprintproavance/liste-annulation.html" target="_blank" rel="noopener">📋 Liste d'attente — M'avertir d'une annulation!</a>
     </div>
   </div>
 </header>
@@ -3868,6 +3884,7 @@ function copierLien(){
     <button type="button" data-q="tarifs">Tarifs</button>
     <button type="button" data-q="soins">Soins après tattoo</button>
     <button type="button" data-q="réserver">Réserver</button>
+    <button type="button" data-q="liste d'attente">Liste d'attente</button>
     <button type="button" data-q="où êtes-vous">Où êtes-vous?</button>
   </div>
   <form id="chatSokalForm" class="chat-sokal-form">
@@ -4070,6 +4087,7 @@ function copierLien(){
   if(!btn || !panneau || !messages) return;
   var LIEN_CYNTHIA = 'https://www.facebook.com/share/17bipwd3sq/';
   var LIEN_CONSENTEMENT = 'https://cynthiaaudetg-cloud.github.io/Stencilprintproavance/consentement.html';
+  var LIEN_ANNULATION = 'https://cynthiaaudetg-cloud.github.io/Stencilprintproavance/liste-annulation.html';
   var accueilli = false;
 
   function normaliser(t){
@@ -4097,10 +4115,13 @@ function copierLien(){
       return { t: "Si tu as des symptômes comme la gastro, la fièvre, des vomissements ou de la diarrhée, ne viens pas à ton rendez-vous. Écris à Cynthia ou Dave sur Messenger au plus vite pour déplacer ta séance. Ton dépôt peut être déplacé une fois sur ta nouvelle date, après deux fois on peut le garder, sauf si c'est une urgence, on est parlables, faut juste pas en abuser. Si c'est quelqu'un autour de toi qui est malade et que toi tu n'as aucun symptôme, écris-nous aussi, on va te dire si tu peux venir. Pour tes questions de santé, appelle Info-Santé au 811, le petit robot ne peut pas te diagnostiquer. <a href=\"" + LIEN_CYNTHIA + "\" target=\"_blank\" rel=\"noopener\">⚡ Écrire à Cynthia</a>", h: true };
     }
     if(contient(q, ['prix', 'tarif', 'combien', 'coute', 'cout', '125', '150'])){
-      return { t: "Cynthia charge 125 $ par heure et Dave 150 $ par heure, avec un minimum d'une heure. Le dépôt (50 $ pour Cynthia, 100 $ pour Dave) est déduit du total en fin de séance si tu veux. Il n'est jamais remboursé.", h: false };
+      return { t: "Cynthia charge 125 $ par heure et Dave 150 $ par heure, avec un minimum d'une heure. Cynthia est toujours parlable et négociable si tu as un budget ou un projet en particulier, gêne-toi pas de lui écrire! Le dépôt (50 $ pour Cynthia, 100 $ pour Dave) est déduit du total en fin de séance si tu veux. Il n'est jamais remboursé.", h: false };
     }
-    if(contient(q, ['depot', 'reserver', 'reservation', 'dispo', 'date', 'rdv', 'rendez', 'annuler', 'annulation', 'janvier', 'fevrier', 'samedi'])){
-      return { t: "Pour réserver ta date, ça prend un dépôt de 50 $ (Cynthia) ou 100 $ (Dave). En 2027, on tatoue les samedis matin seulement, et les dates partent vite! Pour réserver, écris à Cynthia, elle te confirme la date. Si tu dois annuler, dis-le au moins 3 jours d'avance, sinon le dépôt est gardé.", h: false };
+    if(contient(q, ['a quand', 'jusqu', 'rendue', 'rendu', 'dispo', 'disponibilite', 'disponibilites', 'delai', 'liste', 'attente'])){
+      return { t: "Cynthia est rendue à mai 2027 pour ses rendez-vous! À moins d'annulation, donc c'est important de t'inscrire à la liste d'attente de rappel lors d'annulation, comme ça tu es averti dès qu'une place se libère. <a href=\"" + LIEN_ANNULATION + "\" target=\"_blank\" rel=\"noopener\">📋 S'inscrire à la liste d'attente</a>", h: true };
+    }
+    if(contient(q, ['depot', 'reserver', 'reservation', 'date', 'rdv', 'rendez', 'annuler', 'annulation', 'janvier', 'fevrier', 'samedi'])){
+      return { t: "Pour réserver ta date, ça prend un dépôt de 50 $ (Cynthia) ou 100 $ (Dave). En 2027, on tatoue les samedis matin seulement, et Cynthia est rendue à mai 2027! À moins d'annulation, donc inscris-toi à la liste d'attente pour être averti dès qu'une place se libère. <a href=\"" + LIEN_ANNULATION + "\" target=\"_blank\" rel=\"noopener\">📋 S'inscrire à la liste d'attente</a> Pour réserver, écris à Cynthia, elle te confirme la date. Si tu dois annuler, dis-le au moins 3 jours d'avance, sinon le dépôt est gardé.", h: true };
     }
     if(contient(q, ['soin', 'saniderm', 'guerison', 'guerir', 'pellicule', 'creme', 'vitamine', 'douche', 'soleil', 'piscine', 'laver'])){
       return { t: "Après ta séance : garde le Saniderm 3 à 5 jours, enlève la pellicule 2 à 3 heures après, nettoie 3 fois par jour avec un savon doux sans parfum, puis une mince couche de vitamine E en gel sans parfum. Pas de crème anesthésiante sauf si on en a parlé avant!", h: false };
@@ -4124,7 +4145,7 @@ function copierLien(){
       return { t: "Le jeu « Tatoue l'écran! » est tout en haut de la page! Choisis ton aiguille et tatoue l'écran, l'encre reste en place. Amuse-toi!", h: false };
     }
     if(contient(q, ['horaire', 'heure', 'ouvert', 'ferme', 'quand'])){
-      return { t: "En 2027, on tatoue les samedis matin seulement. Les clients arrivent à 9h. Écris à Cynthia pour réserver ta date!", h: false };
+      return { t: "En 2027, on tatoue tous les samedis matin, les clients arrivent à 9h. Parfois Cynthia ouvre aussi les vendredis soirs, au besoin! Écris à Cynthia pour réserver ta date!", h: false };
     }
     return { t: "Bonne question! Pour ça, le mieux c'est d'écrire directement à Cynthia, elle te répond vite 😊 <a href=\"" + LIEN_CYNTHIA + "\" target=\"_blank\" rel=\"noopener\">⚡ Écrire à Cynthia</a>", h: true };
   }
