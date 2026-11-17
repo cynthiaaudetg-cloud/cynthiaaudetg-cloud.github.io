@@ -2361,18 +2361,26 @@ function copierLien(){
 <section id="sokals" class="reveal">
   <div class="kicker">☕ Le matin · 🌙 Le soir</div>
   <h2 class="tattoo">Les Sokal du matin &amp; du soir</h2>
-  <div class="compteur-flashs" aria-label="Nombre d'affiches Sokal publiées">✨ <span class="chiffre" id="sokalCompteurNombre">40</span> affiches</div>
+  <div class="compteur-flashs" aria-label="Nombre d'affiches Sokal publiées">✨ <span class="chiffre" id="sokalCompteurNombre">41</span> affiches</div>
   <p class="intro">Revois toutes les affiches! Chaque matin et chaque soir, une petite dose d'humour tattoo. Voici toutes celles déjà publiées, du 1er octobre à aujourd'hui.</p>
 
   <div class="sokal-toggle-wrap">
     <button type="button" class="btn btn-sokal sokal-toggle" id="sokalToggle" aria-expanded="false" aria-controls="sokalListe">
-      <span class="sokal-toggle-txt">✨ Voir les 40 Sokal</span>
+      <span class="sokal-toggle-txt">✨ Voir les 41 Sokal</span>
     </button>
   </div>
 
   <div class="sokal-liste" id="sokalListe" hidden>
 
   <div class="sokal-grille" id="sokalGrille">
+
+    <article class="sokal-carte" data-type="soir">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-soir">🌙 Sokal du soir</span><img src="sokals/affiche-soldat-mouche-chevreuil-2026-11-17.jpg" alt="Le soldat et la mouche à chevreuil" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Le soldat et la mouche à chevreuil</h3>
+        <p class="sokal-date">Publié le 17 novembre 2026</p>
+      </div>
+    </article>
 
     <article class="sokal-carte" data-type="matin">
       <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-bouton-arreter-tattoo-2026-11-17.jpg" alt="Le bouton arrêter le tattoo" loading="lazy" decoding="async"></div>
@@ -3410,7 +3418,7 @@ function copierLien(){
       } else {
         liste.classList.remove('ouvert');
         btn.setAttribute('aria-expanded', 'false');
-        if(txt) txt.textContent = '✨ Voir les 40 Sokal';
+        if(txt) txt.textContent = '✨ Voir les 41 Sokal';
         setTimeout(function(){ liste.hidden = true; }, 650);
       }
     });
