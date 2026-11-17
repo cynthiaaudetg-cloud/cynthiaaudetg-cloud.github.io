@@ -208,6 +208,21 @@
     0%,100%{box-shadow:0 8px 30px rgba(143,180,221,.5),inset 0 1px 0 rgba(255,255,255,.5);}
     50%{box-shadow:0 8px 44px rgba(143,180,221,.85),inset 0 1px 0 rgba(255,255,255,.5);}
   }
+  /* Bouton CONCOURS — gros bouton festif vers la page des jeux */
+  .btn.concours{
+    background:linear-gradient(135deg,#ff2fd6,#7b2fff 45%,#00e5c7);
+    color:#fff;border:1px solid rgba(255,255,255,.4);
+    box-shadow:0 8px 30px rgba(255,47,214,.5),inset 0 1px 0 rgba(255,255,255,.5);
+    animation:pulse-concours 2.2s ease-in-out infinite;
+  }
+  .btn.concours:hover{
+    box-shadow:0 12px 44px rgba(255,47,214,.8),inset 0 1px 0 rgba(255,255,255,.5);
+    transform:translateY(-2px) scale(1.04);
+  }
+  @keyframes pulse-concours{
+    0%,100%{box-shadow:0 8px 30px rgba(255,47,214,.5),inset 0 1px 0 rgba(255,255,255,.5);}
+    50%{box-shadow:0 8px 48px rgba(255,47,214,.9),inset 0 1px 0 rgba(255,255,255,.5);}
+  }
 
   /* ---------- SECTIONS ---------- */
   section{max-width:980px;margin:0 auto;padding:56px 20px;position:relative;overflow:hidden;}
@@ -1671,6 +1686,7 @@
     <div class="cta-row">
       <a class="btn or" href="#contact">⚡ Réserver ton tattoo</a>
       <a class="btn ghost" href="#flashs">Voir les flashs</a>
+      <a class="btn concours" href="https://muse.ai/s/roue-de-tirage-du-concours-xxxg6xvojxexdabxd/HtFoPPI6RODp7ReW7wiq6ZI87nRSSWCbDtVwWs_0Cak" target="_blank" rel="noopener">🎄🎁 Jeux concours — Voir tes chances de gagner!</a>
     </div>
   </div>
 </header>
@@ -2320,18 +2336,26 @@ function copierLien(){
 <section id="sokals" class="reveal">
   <div class="kicker">☕ Le matin · 🌙 Le soir</div>
   <h2 class="tattoo">Les Sokal du matin &amp; du soir</h2>
-  <div class="compteur-flashs" aria-label="Nombre d'affiches Sokal publiées">✨ <span class="chiffre" id="sokalCompteurNombre">39</span> affiches</div>
+  <div class="compteur-flashs" aria-label="Nombre d'affiches Sokal publiées">✨ <span class="chiffre" id="sokalCompteurNombre">40</span> affiches</div>
   <p class="intro">Revois toutes les affiches! Chaque matin et chaque soir, une petite dose d'humour tattoo. Voici toutes celles déjà publiées, du 1er octobre à aujourd'hui.</p>
 
   <div class="sokal-toggle-wrap">
     <button type="button" class="btn btn-sokal sokal-toggle" id="sokalToggle" aria-expanded="false" aria-controls="sokalListe">
-      <span class="sokal-toggle-txt">✨ Voir les 39 Sokal</span>
+      <span class="sokal-toggle-txt">✨ Voir les 40 Sokal</span>
     </button>
   </div>
 
   <div class="sokal-liste" id="sokalListe" hidden>
 
   <div class="sokal-grille" id="sokalGrille">
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><img src="sokals/affiche-bouton-arreter-tattoo-2026-11-17.jpg" alt="Le bouton arrêter le tattoo" loading="lazy" decoding="async"></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">Le bouton arrêter le tattoo</h3>
+        <p class="sokal-date">Publié le 17 novembre 2026</p>
+      </div>
+    </article>
 
     <article class="sokal-carte" data-type="soir">
       <div class="sokal-media"><span class="sokal-badge sokal-badge-soir">🌙 Sokal du soir</span><img src="sokals/affiche-chez-maman-sokal-2026-11-16-v2.jpg" alt="Chez Maman Sokal" loading="lazy" decoding="async"></div>
