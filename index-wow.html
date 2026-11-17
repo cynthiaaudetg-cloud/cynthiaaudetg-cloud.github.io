@@ -1912,12 +1912,11 @@ function copierLien(){
 <section id="flashs" class="reveal">
   <div class="kicker">Fraîchement dessinés</div>
   <h2 class="tattoo">Flashs disponibles</h2>
-  <div class="compteur-flashs" id="compteurFlashs" aria-label="Nombre de flashs disponibles">⚡ <span class="chiffre" data-cible="18">0</span> flashs disponibles</div>
-  <p class="intro">Mes 18 derniers flashs, avec la vidéo timelapse à côté pour que tu voies comment le design est monté, étape par étape. Prix spécial Portfolio 2027. Premier arrivé, premier servi!</p>
+  <p class="intro">Mes derniers flashs, avec la vidéo timelapse à côté pour que tu voies comment le design est monté, étape par étape. Prix spécial Portfolio 2027. Premier arrivé, premier servi!</p>
 
   <div class="flash-toggle-wrap">
     <button type="button" class="btn btn-venom flash-toggle" id="flashToggle" aria-expanded="false" aria-controls="flashListe">
-      <span class="flash-toggle-txt">⚡ Voir les 18 flashs</span>
+      <span class="flash-toggle-txt">⚡ Voir les flashs</span>
     </button>
   </div>
 
@@ -3389,7 +3388,7 @@ function copierLien(){
     } else {
       liste.classList.remove('ouvert');
       btn.setAttribute('aria-expanded', 'false');
-      if(txt) txt.textContent = '⚡ Voir les 18 flashs';
+      if(txt) txt.textContent = '⚡ Voir les flashs';
       setTimeout(function(){ liste.hidden = true; }, 650);
     }
   });
