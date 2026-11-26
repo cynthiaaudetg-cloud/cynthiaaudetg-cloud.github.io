@@ -244,6 +244,41 @@
     50%{box-shadow:0 8px 48px rgba(255,210,31,.7),inset 0 1px 0 rgba(255,255,255,.5);}
   }
 
+
+  /* Bandeau urgence — rdv rendus en juin 2027 + liste d'attente (ajout 26 nov. 2026) */
+  .bandeau-urgence{
+    position:relative;z-index:60;text-align:center;
+    padding:26px 16px 22px;
+    background:linear-gradient(180deg,#0a0a0c,#141419);
+    border-bottom:3px solid #ff0a16;
+    box-shadow:0 10px 40px rgba(255,10,22,.25),0 10px 60px rgba(0,180,255,.15);
+  }
+  .bandeau-urgence-titre{
+    font-family:'Barlow',sans-serif;font-weight:800;color:#fff;
+    font-size:clamp(1.5rem,5.2vw,2.6rem);line-height:1.15;letter-spacing:.01em;
+    text-shadow:0 0 18px rgba(255,10,22,.65),0 0 46px rgba(0,180,255,.35);
+    margin-bottom:14px;
+  }
+  .bandeau-urgence-titre .bandeau-date{
+    background:linear-gradient(90deg,#ff0a16,#00b4ff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:none;white-space:nowrap;
+  }
+  .bandeau-urgence-btn{
+    display:inline-block;font-family:'Barlow',sans-serif;font-weight:800;
+    font-size:clamp(1.05rem,3.6vw,1.5rem);color:#fff;text-decoration:none;
+    padding:14px 30px;border-radius:999px;
+    background:linear-gradient(135deg,#ff0a16,#b3000f 45%,#00b4ff);
+    border:1px solid rgba(255,255,255,.45);
+    box-shadow:0 8px 30px rgba(255,10,22,.5),inset 0 1px 0 rgba(255,255,255,.5);
+    animation:pulse-attente 2.4s ease-in-out infinite;
+  }
+  .bandeau-urgence-btn:hover{transform:translateY(-2px) scale(1.04);}
+  .bandeau-urgence-sous{
+    margin-top:12px;color:#c8c8c8;font-weight:600;
+    font-size:clamp(.95rem,3vw,1.15rem);
+  }
+
   /* ---------- SECTIONS ---------- */
   section{max-width:980px;margin:0 auto;padding:56px 20px;position:relative;overflow:hidden;}
   .kicker{
@@ -1670,6 +1705,12 @@
 <div id="torche" aria-hidden="true"></div>
 <canvas id="trainee" aria-hidden="true"></canvas>
 
+<div class="bandeau-urgence">
+  <div class="bandeau-urgence-titre">⏰ FAITES VITE ! Nos rendez-vous vont déjà en <span class="bandeau-date">juin 2027</span> !</div>
+  <a class="bandeau-urgence-btn" href="https://cynthiaaudetg-cloud.github.io/Stencilprintproavance/liste-annulation.html" target="_blank" rel="noopener">📋 Inscrivez-vous sur notre liste d'attente</a>
+  <div class="bandeau-urgence-sous">pour avoir une chance d'être appelé avant en cas d'annulation !</div>
+</div>
+
 <nav>
   <div class="logo"><img src="logo-tattoo-sokalite-blanc.png" alt="Tattoo Sokalité"></div>
   <div class="links">
@@ -2418,18 +2459,26 @@ function copierLien(){
 <section id="sokals" class="reveal">
   <div class="kicker">☕ Le matin · 🌙 Le soir</div>
   <h2 class="tattoo">Les Sokal du matin &amp; du soir</h2>
-  <div class="compteur-flashs" aria-label="Nombre d'affiches Sokal publiées">✨ <span class="chiffre" id="sokalCompteurNombre">53</span> affiches</div>
+  <div class="compteur-flashs" aria-label="Nombre d'affiches Sokal publiées">✨ <span class="chiffre" id="sokalCompteurNombre">54</span> affiches</div>
   <p class="intro">Revois toutes les affiches! Chaque matin et chaque soir, une petite dose d'humour tattoo. Voici toutes celles déjà publiées, du 1er octobre à aujourd'hui.</p>
 
   <div class="sokal-toggle-wrap">
     <button type="button" class="btn btn-sokal sokal-toggle" id="sokalToggle" aria-expanded="false" aria-controls="sokalListe">
-      <span class="sokal-toggle-txt">✨ Voir les 53 Sokal</span>
+      <span class="sokal-toggle-txt">✨ Voir les 54 Sokal</span>
     </button>
   </div>
 
   <div class="sokal-liste" id="sokalListe" hidden>
 
   <div class="sokal-grille" id="sokalGrille">
+
+    <article class="sokal-carte" data-type="matin">
+      <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☕ Sokal du matin</span><video src="sokals/video-accompagnateurs-v21-2026-11-26.mp4" poster="sokals/affiche-accompagnateurs-concentration-2026-11-25.jpg" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block" aria-label="C'est qui qui se fait tatouer ici ?"></video></div>
+      <div class="sokal-info">
+        <h3 class="sokal-titre">C'est qui qui se fait tatouer ici ?</h3>
+        <p class="sokal-date">Publié le 26 novembre 2026</p>
+      </div>
+    </article>
 
     <article class="sokal-carte" data-type="jour">
       <div class="sokal-media"><span class="sokal-badge sokal-badge-matin">☀️ Sokal du jour</span><video src="sokals/video-homer-v12-2026-11-25.mp4" poster="sokals/affiche-homer-exactement-2026-11-19.jpg" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block" aria-label="Je veux EXACTEMENT ce Homer-là !"></video></div>
@@ -3573,7 +3622,7 @@ function copierLien(){
       } else {
         liste.classList.remove('ouvert');
         btn.setAttribute('aria-expanded', 'false');
-        if(txt) txt.textContent = '✨ Voir les 53 Sokal';
+        if(txt) txt.textContent = '✨ Voir les 54 Sokal';
         setTimeout(function(){ liste.hidden = true; }, 650);
       }
     });
@@ -4291,10 +4340,10 @@ function copierLien(){
       return { t: "Cynthia charge 125 $ par heure et Dave 150 $ par heure, avec un minimum d'une heure. Cynthia est toujours parlable et négociable si tu as un budget ou un projet en particulier, gêne-toi pas de lui écrire! Le dépôt (50 $ pour Cynthia, 100 $ pour Dave) est déduit du total en fin de séance si tu veux. Il n'est jamais remboursé.", h: false };
     }
     if(contient(q, ['a quand', 'jusqu', 'rendue', 'rendu', 'dispo', 'disponibilite', 'disponibilites', 'delai', 'liste', 'attente'])){
-      return { t: "Cynthia est rendue à mai 2027 pour ses rendez-vous! À moins d'annulation, donc c'est important de t'inscrire à la liste d'attente de rappel lors d'annulation, comme ça tu es averti dès qu'une place se libère. <a href=\"" + LIEN_ANNULATION + "\" target=\"_blank\" rel=\"noopener\">📋 S'inscrire à la liste d'attente</a>", h: true };
+      return { t: "Cynthia est rendue à juin 2027 pour ses rendez-vous! À moins d'annulation, donc c'est important de t'inscrire à la liste d'attente de rappel lors d'annulation, comme ça tu es averti dès qu'une place se libère. <a href=\"" + LIEN_ANNULATION + "\" target=\"_blank\" rel=\"noopener\">📋 S'inscrire à la liste d'attente</a>", h: true };
     }
     if(contient(q, ['depot', 'reserver', 'reservation', 'date', 'rdv', 'rendez', 'annuler', 'annulation', 'janvier', 'fevrier', 'samedi'])){
-      return { t: "Pour réserver ta date, ça prend un dépôt de 50 $ (Cynthia) ou 100 $ (Dave). En 2027, on tatoue les samedis matin seulement, et Cynthia est rendue à mai 2027! À moins d'annulation, donc inscris-toi à la liste d'attente pour être averti dès qu'une place se libère. <a href=\"" + LIEN_ANNULATION + "\" target=\"_blank\" rel=\"noopener\">📋 S'inscrire à la liste d'attente</a> Pour réserver, écris à Cynthia, elle te confirme la date. Si tu dois annuler, dis-le au moins 3 jours d'avance, sinon le dépôt est gardé.", h: true };
+      return { t: "Pour réserver ta date, ça prend un dépôt de 50 $ (Cynthia) ou 100 $ (Dave). En 2027, on tatoue les samedis matin seulement, et Cynthia est rendue à juin 2027! À moins d'annulation, donc inscris-toi à la liste d'attente pour être averti dès qu'une place se libère. <a href=\"" + LIEN_ANNULATION + "\" target=\"_blank\" rel=\"noopener\">📋 S'inscrire à la liste d'attente</a> Pour réserver, écris à Cynthia, elle te confirme la date. Si tu dois annuler, dis-le au moins 3 jours d'avance, sinon le dépôt est gardé.", h: true };
     }
     if(contient(q, ['soin', 'saniderm', 'guerison', 'guerir', 'pellicule', 'creme', 'vitamine', 'douche', 'soleil', 'piscine', 'laver'])){
       return { t: "Après ta séance : garde le Saniderm 3 à 5 jours, enlève la pellicule 2 à 3 heures après, nettoie 3 fois par jour avec un savon doux sans parfum, puis une mince couche de vitamine E en gel sans parfum. Pas de crème anesthésiante sauf si on en a parlé avant!", h: false };
